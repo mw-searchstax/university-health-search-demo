@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { pageHref, typeLabels } from '../lib/pages';
+
+interface Props { pages: CollectionEntry<'pages'>[]; }
+const { pages } = Astro.props;
+---
+<ul class="card-grid">
+  {pages.map(({ data }) => (
+    <li class="content-card">
+      <p class="eyebrow">{typeLabels[data.content_type]}</p>
+      <h3><a href={pageHref(data.slug)}>{data.title}<span aria-hidden="true">↗</span></a></h3>
+      <p>{data.summary}</p>
+    </li>
+  ))}
+</ul>

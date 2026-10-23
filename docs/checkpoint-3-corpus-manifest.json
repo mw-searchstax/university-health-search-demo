@@ -1,0 +1,2004 @@
+{
+  "status": "Preparation approved; new authoring allocations proposed for Matt’s review. Corpus execution unauthorized.",
+  "date": "2026-10-22",
+  "authority": "D-026 inventory, D-029 experiments, D-032 lessons, D-033 bounded preparation.",
+  "scope": "Planning data only; this file is not consumed by the website or a content generator.",
+  "count_target": {
+    "html": 86,
+    "existing_html": 10,
+    "new_html": 76,
+    "pdf": 6
+  },
+  "conventions": {
+    "home": "Planning ID home represents site.json:home, not a collection ID. No collection record may reference home through related_ids.",
+    "existing": "Preserve current source bytes during preparation. Manifest relationship lists are final proposed unions, not edits already made.",
+    "planned": "New IDs, slugs, non-controlled dates, subject allocations and relationship edges are implementation proposals, not additional historical approvals.",
+    "dates": "New non-news records use fixed 2026-03-16 / 2026-09-28 defaults; news dates are explicit. Existing dates remain exact.",
+    "audience": "Choose only existing audience enum values appropriate to purpose during authoring; existing arrays remain intact.",
+    "provider_facts": "Use listed service/location IDs for required references; specialty and department must agree with the linked fictional unit. No additional medical qualifications.",
+    "page_copy": "Purpose statements are authoring briefs, not final summaries or generated Markdown bodies."
+  },
+  "html": [
+    {
+      "id": "home",
+      "content_type": "hub",
+      "title": "Care, learning and community.",
+      "slug": "",
+      "purpose": "Institutional entry point linking all section hubs while retaining the existing featured records.",
+      "related_ids": [
+        "hub-care",
+        "program-nursing",
+        "community-screening",
+        "news-screening-2024",
+        "hub-about",
+        "hub-education",
+        "hub-research",
+        "hub-locations",
+        "hub-community",
+        "hub-news"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-10-01",
+      "updated_date": "2026-10-22",
+      "status": "existing",
+      "source_file": "src/data/site.json",
+      "source_pointer": "home",
+      "source_sha256": "87f791d90d4fabd9843cd52b11a77fa2f7ef33b784103275f79faa745742d5f9",
+      "preserve_existing_copy": true,
+      "inventory_label": "Home"
+    },
+    {
+      "id": "hub-about",
+      "content_type": "hub",
+      "title": "About Alder Coast",
+      "slug": "about",
+      "purpose": "Explain the fictional university-health relationship, institutional structure and demonstration identity.",
+      "related_ids": [
+        "hub-care",
+        "hub-education",
+        "hub-research",
+        "hub-locations",
+        "hub-community",
+        "hub-news"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-about.md",
+      "inventory_label": "About"
+    },
+    {
+      "id": "hub-care",
+      "content_type": "hub",
+      "title": "Care at Alder Coast University Health",
+      "slug": "care",
+      "purpose": "Orient readers to departments, providers, resources and places through grouped directories.",
+      "related_ids": [
+        "provider-mara-ellison",
+        "location-sleep-center",
+        "service-sleep-medicine",
+        "service-cardiology",
+        "resource-mi-terms",
+        "provider-jonah-fenwick",
+        "provider-lena-calder",
+        "provider-niko-maren",
+        "provider-tessa-rowan",
+        "provider-adrian-pell",
+        "provider-mina-corven",
+        "provider-theo-ashwell",
+        "provider-iris-bellan",
+        "provider-nolan-vey",
+        "provider-elena-farrow",
+        "provider-owen-talden",
+        "provider-priya-wrenford",
+        "provider-soren-hale",
+        "provider-cora-lindell",
+        "provider-felix-arden",
+        "provider-nadia-mercer",
+        "provider-miles-tavish",
+        "provider-rhea-solen",
+        "provider-simon-kelver",
+        "provider-anika-pellan",
+        "provider-dorian-weller",
+        "service-neurology",
+        "service-primary-care",
+        "service-pediatrics",
+        "service-orthopedics",
+        "service-rehabilitation",
+        "service-pulmonology",
+        "service-dermatology",
+        "service-endocrinology",
+        "service-gastroenterology",
+        "service-oncology",
+        "service-behavioral-health",
+        "service-womens-health",
+        "service-imaging",
+        "service-laboratory-services",
+        "location-university-hospital",
+        "location-north-campus-clinic",
+        "location-south-campus-clinic",
+        "location-heart-center",
+        "location-rehabilitation-center",
+        "location-childrens-clinic",
+        "location-community-health-pavilion",
+        "location-teaching-health-center",
+        "resource-appointment-preparation",
+        "resource-heart-education",
+        "resource-sleep-visit",
+        "resource-cardiology-visit",
+        "resource-accessibility",
+        "resource-visiting-hospital",
+        "resource-referrals"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-01-12",
+      "updated_date": "2026-09-18",
+      "status": "existing",
+      "source_file": "src/content/pages/hub-care.md",
+      "source_sha256": "72bb5416872e604ef98950381f7bbe3f099eacf7fa595f9b0d6e7aa9b9934c97",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Care",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "hub-education",
+      "content_type": "hub",
+      "title": "Education at Alder Coast",
+      "slug": "education",
+      "purpose": "Compare the purposes of eight academic programs and identify their campus teaching links.",
+      "related_ids": [
+        "program-medicine",
+        "program-nursing",
+        "program-public-health",
+        "program-biomedical-sciences",
+        "program-cardiology-residency",
+        "program-sleep-medicine-fellowship",
+        "program-continuing-education",
+        "program-admissions"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-education.md",
+      "inventory_label": "Education"
+    },
+    {
+      "id": "hub-research",
+      "content_type": "hub",
+      "title": "Research at Alder Coast",
+      "slug": "research",
+      "purpose": "Introduce five research and learning groups by subject and educational material, without results or recruitment.",
+      "related_ids": [
+        "research-cardiovascular",
+        "research-sleep-health",
+        "research-population-health",
+        "research-nursing-lab",
+        "research-participation"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-research.md",
+      "inventory_label": "Research"
+    },
+    {
+      "id": "hub-locations",
+      "content_type": "hub",
+      "title": "Alder Coast Locations",
+      "slug": "locations",
+      "purpose": "Distinguish nine fictional campus settings by rooms, collections and institutional use.",
+      "related_ids": [
+        "location-university-hospital",
+        "location-north-campus-clinic",
+        "location-south-campus-clinic",
+        "location-heart-center",
+        "location-sleep-center",
+        "location-rehabilitation-center",
+        "location-childrens-clinic",
+        "location-community-health-pavilion",
+        "location-teaching-health-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-locations.md",
+      "inventory_label": "Locations"
+    },
+    {
+      "id": "hub-community",
+      "content_type": "hub",
+      "title": "Community at Alder Coast",
+      "slug": "community",
+      "purpose": "Distinguish five enduring public-service programs from dated institutional news.",
+      "related_ids": [
+        "community-screening",
+        "community-transit-access",
+        "community-public-health-partnerships",
+        "community-health-literacy",
+        "community-school-health"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-community.md",
+      "inventory_label": "Community"
+    },
+    {
+      "id": "hub-news",
+      "content_type": "hub",
+      "title": "Alder Coast News Archive",
+      "slug": "news",
+      "purpose": "Provide a chronological index of five historical institutional notices with fixed publication dates.",
+      "related_ids": [
+        "news-screening-2024",
+        "news-screening-2025",
+        "news-screening-2026",
+        "news-library-opening",
+        "news-nursing-open-day"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/hub-news.md",
+      "inventory_label": "News"
+    },
+    {
+      "id": "provider-mara-ellison",
+      "content_type": "provider",
+      "title": "Mara Ellison",
+      "slug": "care/providers/mara-ellison",
+      "purpose": "Equipment demonstrations using sensor props, blank recording charts and illustrated room plans.",
+      "related_ids": [
+        "hub-care",
+        "service-sleep-medicine",
+        "location-sleep-center"
+      ],
+      "service_ids": [
+        "service-sleep-medicine"
+      ],
+      "location_ids": [
+        "location-sleep-center"
+      ],
+      "scenario_roles": [
+        "DEMO-01 target"
+      ],
+      "published_date": "2026-02-03",
+      "updated_date": "2026-09-21",
+      "status": "existing",
+      "source_file": "src/content/pages/provider-mara-ellison.md",
+      "source_sha256": "7f273ec90a0b72a95933bef0d2cec0618ad69e03f680a63eeed7b8266ed3634c",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Mara Ellison",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "provider-jonah-fenwick",
+      "content_type": "provider",
+      "title": "Jonah Fenwick",
+      "slug": "care/providers/jonah-fenwick",
+      "purpose": "Curate a cardiology anatomy atlas and annotated heart-diagram collection for learners.",
+      "related_ids": [
+        "service-cardiology",
+        "location-heart-center",
+        "program-cardiology-residency",
+        "research-cardiovascular"
+      ],
+      "service_ids": [
+        "service-cardiology"
+      ],
+      "location_ids": [
+        "location-heart-center"
+      ],
+      "scenario_roles": [
+        "DEMO-03/04 provider comparator"
+      ],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-jonah-fenwick.md",
+      "inventory_label": "Jonah Fenwick"
+    },
+    {
+      "id": "provider-lena-calder",
+      "content_type": "provider",
+      "title": "Lena Calder",
+      "slug": "care/providers/lena-calder",
+      "purpose": "Maintain an illustrated nerve-pathway atlas and specimen-model inventory for anatomy classes.",
+      "related_ids": [
+        "service-neurology",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-neurology"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-lena-calder.md",
+      "inventory_label": "Lena Calder"
+    },
+    {
+      "id": "provider-niko-maren",
+      "content_type": "provider",
+      "title": "Niko Maren",
+      "slug": "care/providers/niko-maren",
+      "purpose": "Develop fictional longitudinal case cards that distinguish observations from assumptions across classroom discussions.",
+      "related_ids": [
+        "service-primary-care",
+        "location-north-campus-clinic"
+      ],
+      "service_ids": [
+        "service-primary-care"
+      ],
+      "location_ids": [
+        "location-north-campus-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-niko-maren.md",
+      "inventory_label": "Niko Maren"
+    },
+    {
+      "id": "provider-tessa-rowan",
+      "content_type": "provider",
+      "title": "Tessa Rowan",
+      "slug": "care/providers/tessa-rowan",
+      "purpose": "Curate age-labelled classroom models and a picture-book collection about the fictional campus.",
+      "related_ids": [
+        "service-pediatrics",
+        "location-childrens-clinic"
+      ],
+      "service_ids": [
+        "service-pediatrics"
+      ],
+      "location_ids": [
+        "location-childrens-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-tessa-rowan.md",
+      "inventory_label": "Tessa Rowan"
+    },
+    {
+      "id": "provider-adrian-pell",
+      "content_type": "provider",
+      "title": "Adrian Pell",
+      "slug": "care/providers/adrian-pell",
+      "purpose": "Catalogue joint models and sketchbooks showing how learners name skeletal structures.",
+      "related_ids": [
+        "service-orthopedics",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-orthopedics"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-adrian-pell.md",
+      "inventory_label": "Adrian Pell"
+    },
+    {
+      "id": "provider-mina-corven",
+      "content_type": "provider",
+      "title": "Mina Corven",
+      "slug": "care/providers/mina-corven",
+      "purpose": "Organize mock apartment layouts and annotated room plans for accessibility design discussions.",
+      "related_ids": [
+        "service-rehabilitation",
+        "location-rehabilitation-center"
+      ],
+      "service_ids": [
+        "service-rehabilitation"
+      ],
+      "location_ids": [
+        "location-rehabilitation-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-mina-corven.md",
+      "inventory_label": "Mina Corven"
+    },
+    {
+      "id": "provider-theo-ashwell",
+      "content_type": "provider",
+      "title": "Theo Ashwell",
+      "slug": "care/providers/theo-ashwell",
+      "purpose": "Build a respiratory-anatomy display and label its demonstration equipment for student orientation.",
+      "related_ids": [
+        "service-pulmonology",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-pulmonology"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-theo-ashwell.md",
+      "inventory_label": "Theo Ashwell"
+    },
+    {
+      "id": "provider-iris-bellan",
+      "content_type": "provider",
+      "title": "Iris Bellan",
+      "slug": "care/providers/iris-bellan",
+      "purpose": "Maintain a schematic skin-layer image collection with captions and illustration provenance.",
+      "related_ids": [
+        "service-dermatology",
+        "location-south-campus-clinic"
+      ],
+      "service_ids": [
+        "service-dermatology"
+      ],
+      "location_ids": [
+        "location-south-campus-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-iris-bellan.md",
+      "inventory_label": "Iris Bellan"
+    },
+    {
+      "id": "provider-nolan-vey",
+      "content_type": "provider",
+      "title": "Nolan Vey",
+      "slug": "care/providers/nolan-vey",
+      "purpose": "Create labelled gland models and classroom terminology cards, without interpretation of test values.",
+      "related_ids": [
+        "service-endocrinology",
+        "location-south-campus-clinic"
+      ],
+      "service_ids": [
+        "service-endocrinology"
+      ],
+      "location_ids": [
+        "location-south-campus-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-nolan-vey.md",
+      "inventory_label": "Nolan Vey"
+    },
+    {
+      "id": "provider-elena-farrow",
+      "content_type": "provider",
+      "title": "Elena Farrow",
+      "slug": "care/providers/elena-farrow",
+      "purpose": "Curate digestive-anatomy models and a map of topics covered in the teaching collection.",
+      "related_ids": [
+        "service-gastroenterology",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-gastroenterology"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-elena-farrow.md",
+      "inventory_label": "Elena Farrow"
+    },
+    {
+      "id": "provider-owen-talden",
+      "content_type": "provider",
+      "title": "Owen Talden",
+      "slug": "care/providers/owen-talden",
+      "purpose": "Develop glossary navigation cards for institutional oncology reading, avoiding disease equivalences or outcomes.",
+      "related_ids": [
+        "service-oncology",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-oncology"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-owen-talden.md",
+      "inventory_label": "Owen Talden"
+    },
+    {
+      "id": "provider-priya-wrenford",
+      "content_type": "provider",
+      "title": "Priya Wrenford",
+      "slug": "care/providers/priya-wrenford",
+      "purpose": "Organize fictional conversation transcripts for examining wording, attribution and respectful documentation.",
+      "related_ids": [
+        "service-behavioral-health",
+        "location-teaching-health-center"
+      ],
+      "service_ids": [
+        "service-behavioral-health"
+      ],
+      "location_ids": [
+        "location-teaching-health-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-priya-wrenford.md",
+      "inventory_label": "Priya Wrenford"
+    },
+    {
+      "id": "provider-soren-hale",
+      "content_type": "provider",
+      "title": "Soren Hale",
+      "slug": "care/providers/soren-hale",
+      "purpose": "Maintain an annotated reading catalogue and anatomical illustration register for classroom use.",
+      "related_ids": [
+        "service-womens-health",
+        "location-south-campus-clinic"
+      ],
+      "service_ids": [
+        "service-womens-health"
+      ],
+      "location_ids": [
+        "location-south-campus-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-soren-hale.md",
+      "inventory_label": "Soren Hale"
+    },
+    {
+      "id": "provider-cora-lindell",
+      "content_type": "provider",
+      "title": "Cora Lindell",
+      "slug": "care/providers/cora-lindell",
+      "purpose": "Explain how synthetic image sets are labelled, catalogued and separated from real patient records.",
+      "related_ids": [
+        "service-imaging",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-imaging"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-cora-lindell.md",
+      "inventory_label": "Cora Lindell"
+    },
+    {
+      "id": "provider-felix-arden",
+      "content_type": "provider",
+      "title": "Felix Arden",
+      "slug": "care/providers/felix-arden",
+      "purpose": "Maintain simulated specimen labels and blank inventory forms for laboratory orientation.",
+      "related_ids": [
+        "service-laboratory-services",
+        "location-university-hospital"
+      ],
+      "service_ids": [
+        "service-laboratory-services"
+      ],
+      "location_ids": [
+        "location-university-hospital"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-felix-arden.md",
+      "inventory_label": "Felix Arden"
+    },
+    {
+      "id": "provider-nadia-mercer",
+      "content_type": "provider",
+      "title": "Nadia Mercer",
+      "slug": "care/providers/nadia-mercer",
+      "purpose": "Lead classroom comparison of historical heart diagrams and modern schematic teaching models.",
+      "related_ids": [
+        "service-cardiology",
+        "location-heart-center"
+      ],
+      "service_ids": [
+        "service-cardiology"
+      ],
+      "location_ids": [
+        "location-heart-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-nadia-mercer.md",
+      "inventory_label": "Nadia Mercer"
+    },
+    {
+      "id": "provider-miles-tavish",
+      "content_type": "provider",
+      "title": "Miles Tavish",
+      "slug": "care/providers/miles-tavish",
+      "purpose": "Develop illustrated classroom exercises on how an observation is recorded in an invented case.",
+      "related_ids": [
+        "service-neurology",
+        "location-north-campus-clinic"
+      ],
+      "service_ids": [
+        "service-neurology"
+      ],
+      "location_ids": [
+        "location-north-campus-clinic"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-miles-tavish.md",
+      "inventory_label": "Miles Tavish"
+    },
+    {
+      "id": "provider-rhea-solen",
+      "content_type": "provider",
+      "title": "Rhea Solen",
+      "slug": "care/providers/rhea-solen",
+      "purpose": "Curate mock referral narratives for studying document roles and departmental handoffs.",
+      "related_ids": [
+        "service-primary-care",
+        "location-teaching-health-center"
+      ],
+      "service_ids": [
+        "service-primary-care"
+      ],
+      "location_ids": [
+        "location-teaching-health-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-rhea-solen.md",
+      "inventory_label": "Rhea Solen"
+    },
+    {
+      "id": "provider-simon-kelver",
+      "content_type": "provider",
+      "title": "Simon Kelver",
+      "slug": "care/providers/simon-kelver",
+      "purpose": "Maintain a display of adjustable classroom furniture and its annotated design drawings.",
+      "related_ids": [
+        "service-rehabilitation",
+        "location-rehabilitation-center"
+      ],
+      "service_ids": [
+        "service-rehabilitation"
+      ],
+      "location_ids": [
+        "location-rehabilitation-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-simon-kelver.md",
+      "inventory_label": "Simon Kelver"
+    },
+    {
+      "id": "provider-anika-pellan",
+      "content_type": "provider",
+      "title": "Anika Pellan",
+      "slug": "care/providers/anika-pellan",
+      "purpose": "Coordinate public-health leaflet reading exercises with the Health Literacy program.",
+      "related_ids": [
+        "service-primary-care",
+        "location-community-health-pavilion",
+        "program-public-health",
+        "community-health-literacy"
+      ],
+      "service_ids": [
+        "service-primary-care"
+      ],
+      "location_ids": [
+        "location-community-health-pavilion"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-anika-pellan.md",
+      "inventory_label": "Anika Pellan"
+    },
+    {
+      "id": "provider-dorian-weller",
+      "content_type": "provider",
+      "title": "Dorian Weller",
+      "slug": "care/providers/dorian-weller",
+      "purpose": "Catalogue demonstration-room layouts and the university collection of fictional recording charts.",
+      "related_ids": [
+        "service-sleep-medicine",
+        "location-sleep-center"
+      ],
+      "service_ids": [
+        "service-sleep-medicine"
+      ],
+      "location_ids": [
+        "location-sleep-center"
+      ],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/provider-dorian-weller.md",
+      "inventory_label": "Dorian Weller"
+    },
+    {
+      "id": "service-cardiology",
+      "content_type": "service",
+      "title": "Cardiology",
+      "slug": "care/services/cardiology",
+      "purpose": "Heart structure, rhythm and coronary-circulation subjects, plus the department teaching collection.",
+      "related_ids": [
+        "hub-care",
+        "resource-mi-terms",
+        "location-heart-center",
+        "provider-jonah-fenwick",
+        "provider-nadia-mercer",
+        "resource-cardiology-visit"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-03 title match",
+        "DEMO-04 service class"
+      ],
+      "published_date": "2026-01-28",
+      "updated_date": "2026-09-23",
+      "status": "existing",
+      "source_file": "src/content/pages/service-cardiology.md",
+      "source_sha256": "8203f073386cfae1730593cbc8e8d0ce9f4ce5ab8ddbb624cc5c17ed99f2fd45",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Cardiology",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "service-sleep-medicine",
+      "content_type": "service",
+      "title": "Sleep Medicine",
+      "slug": "care/services/sleep-medicine",
+      "purpose": "Sleep-related breathing, insomnia and circadian subjects; distinguish the academic unit from its building.",
+      "related_ids": [
+        "hub-care",
+        "provider-mara-ellison",
+        "location-sleep-center",
+        "provider-dorian-weller",
+        "program-sleep-medicine-fellowship",
+        "resource-sleep-visit"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-01 positive control"
+      ],
+      "published_date": "2026-01-28",
+      "updated_date": "2026-09-23",
+      "status": "existing",
+      "source_file": "src/content/pages/service-sleep-medicine.md",
+      "source_sha256": "e4c16a0ae0336d6deb5f21a5b852090df18ea0e7f8a91e930775c9e2c13a24af",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Sleep Medicine",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "service-neurology",
+      "content_type": "service",
+      "title": "Neurology",
+      "slug": "care/services/neurology",
+      "purpose": "Nervous-system subject areas, illustrated anatomy collections and links to Biomedical Sciences.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-lena-calder",
+        "provider-miles-tavish"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-neurology.md",
+      "inventory_label": "Neurology"
+    },
+    {
+      "id": "service-primary-care",
+      "content_type": "service",
+      "title": "Primary Care",
+      "slug": "care/services/primary-care",
+      "purpose": "Broad academic scope and classroom continuity cases, distinct from specialist departmental collections.",
+      "related_ids": [
+        "location-teaching-health-center",
+        "provider-niko-maren",
+        "provider-rhea-solen",
+        "provider-anika-pellan"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-primary-care.md",
+      "inventory_label": "Primary Care"
+    },
+    {
+      "id": "service-pediatrics",
+      "content_type": "service",
+      "title": "Pediatrics",
+      "slug": "care/services/pediatrics",
+      "purpose": "Child-health academic topics and age-labelled teaching collections in the fictional children’s setting.",
+      "related_ids": [
+        "location-childrens-clinic",
+        "provider-tessa-rowan"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-pediatrics.md",
+      "inventory_label": "Pediatrics"
+    },
+    {
+      "id": "service-orthopedics",
+      "content_type": "service",
+      "title": "Orthopedics",
+      "slug": "care/services/orthopedics",
+      "purpose": "Bones and joints as an academic subject; contrast model collections with rehabilitation room design.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-adrian-pell"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-orthopedics.md",
+      "inventory_label": "Orthopedics"
+    },
+    {
+      "id": "service-rehabilitation",
+      "content_type": "service",
+      "title": "Rehabilitation",
+      "slug": "care/services/rehabilitation",
+      "purpose": "Functional-environment teaching, adaptable room layouts and links to accessibility design materials.",
+      "related_ids": [
+        "location-rehabilitation-center",
+        "provider-mina-corven",
+        "provider-simon-kelver"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-rehabilitation.md",
+      "inventory_label": "Rehabilitation"
+    },
+    {
+      "id": "service-pulmonology",
+      "content_type": "service",
+      "title": "Pulmonology",
+      "slug": "care/services/pulmonology",
+      "purpose": "Respiratory anatomy teaching and the unit’s relationship to the broader Pulmonary and Sleep Services grouping.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-theo-ashwell"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-pulmonology.md",
+      "inventory_label": "Pulmonology"
+    },
+    {
+      "id": "service-dermatology",
+      "content_type": "service",
+      "title": "Dermatology",
+      "slug": "care/services/dermatology",
+      "purpose": "Skin as an academic subject and the provenance of schematic illustrations used in teaching.",
+      "related_ids": [
+        "location-south-campus-clinic",
+        "provider-iris-bellan"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-dermatology.md",
+      "inventory_label": "Dermatology"
+    },
+    {
+      "id": "service-endocrinology",
+      "content_type": "service",
+      "title": "Endocrinology",
+      "slug": "care/services/endocrinology",
+      "purpose": "Endocrine-system academic scope and labelled gland models; no test interpretation.",
+      "related_ids": [
+        "location-south-campus-clinic",
+        "provider-nolan-vey"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-endocrinology.md",
+      "inventory_label": "Endocrinology"
+    },
+    {
+      "id": "service-gastroenterology",
+      "content_type": "service",
+      "title": "Gastroenterology",
+      "slug": "care/services/gastroenterology",
+      "purpose": "Digestive-system academic scope and the arrangement of anatomy teaching stations.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-elena-farrow"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-gastroenterology.md",
+      "inventory_label": "Gastroenterology"
+    },
+    {
+      "id": "service-oncology",
+      "content_type": "service",
+      "title": "Oncology",
+      "slug": "care/services/oncology",
+      "purpose": "Cancer-related academic vocabulary and cross-disciplinary reading collections without clinical promises.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-owen-talden"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-oncology.md",
+      "inventory_label": "Oncology"
+    },
+    {
+      "id": "service-behavioral-health",
+      "content_type": "service",
+      "title": "Behavioral Health",
+      "slug": "care/services/behavioral-health",
+      "purpose": "Academic study of behavioral health and fictional communication materials used in seminars.",
+      "related_ids": [
+        "location-teaching-health-center",
+        "provider-priya-wrenford"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-behavioral-health.md",
+      "inventory_label": "Behavioral Health"
+    },
+    {
+      "id": "service-womens-health",
+      "content_type": "service",
+      "title": "Women’s Health",
+      "slug": "care/services/womens-health",
+      "purpose": "Interdisciplinary academic subject area and its reading catalogue; no eligibility or screening advice.",
+      "related_ids": [
+        "location-south-campus-clinic",
+        "provider-soren-hale"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-womens-health.md",
+      "inventory_label": "Women's Health"
+    },
+    {
+      "id": "service-imaging",
+      "content_type": "service",
+      "title": "Imaging",
+      "slug": "care/services/imaging",
+      "purpose": "Synthetic image teaching sets, image labels and the unit’s institutional role distinct from diagnosis.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-cora-lindell"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-imaging.md",
+      "inventory_label": "Imaging"
+    },
+    {
+      "id": "service-laboratory-services",
+      "content_type": "service",
+      "title": "Laboratory Services",
+      "slug": "care/services/laboratory-services",
+      "purpose": "Teaching laboratory organization, sample identifiers and simulated inventory practices.",
+      "related_ids": [
+        "location-university-hospital",
+        "provider-felix-arden"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/service-laboratory-services.md",
+      "inventory_label": "Laboratory Services"
+    },
+    {
+      "id": "location-university-hospital",
+      "content_type": "location",
+      "title": "Alder Coast University Hospital",
+      "slug": "locations/university-hospital",
+      "purpose": "Campus anchor building: teaching wings, library connection and departmental geography.",
+      "related_ids": [
+        "service-neurology",
+        "service-orthopedics",
+        "service-pulmonology",
+        "service-gastroenterology",
+        "service-oncology",
+        "service-imaging",
+        "service-laboratory-services",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-university-hospital.md",
+      "inventory_label": "University Hospital"
+    },
+    {
+      "id": "location-north-campus-clinic",
+      "content_type": "location",
+      "title": "North Campus Clinic",
+      "slug": "locations/north-campus-clinic",
+      "purpose": "Northern academic annex with shared classrooms and model-storage spaces for Primary Care and Neurology.",
+      "related_ids": [
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-north-campus-clinic.md",
+      "inventory_label": "North Campus Clinic"
+    },
+    {
+      "id": "location-south-campus-clinic",
+      "content_type": "location",
+      "title": "South Campus Clinic",
+      "slug": "locations/south-campus-clinic",
+      "purpose": "Southern teaching annex with illustration displays and shared seminar rooms for three departments.",
+      "related_ids": [
+        "service-dermatology",
+        "service-endocrinology",
+        "service-womens-health",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-south-campus-clinic.md",
+      "inventory_label": "South Campus Clinic"
+    },
+    {
+      "id": "location-heart-center",
+      "content_type": "location",
+      "title": "Alder Coast Heart Center",
+      "slug": "locations/heart-center",
+      "purpose": "Heart-model gallery, anatomy classroom and its connection to Cardiology and the residency.",
+      "related_ids": [
+        "service-cardiology",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-heart-center.md",
+      "inventory_label": "Heart Center"
+    },
+    {
+      "id": "location-sleep-center",
+      "content_type": "location",
+      "title": "Alder Coast Sleep Center",
+      "slug": "locations/sleep-center",
+      "purpose": "Low-rise academic building, covered walkway, demonstration bedrooms and observation room.",
+      "related_ids": [
+        "hub-care",
+        "provider-mara-ellison",
+        "service-sleep-medicine",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-02-10",
+      "updated_date": "2026-09-21",
+      "status": "existing",
+      "source_file": "src/content/pages/location-sleep-center.md",
+      "source_sha256": "de2a37592e449923ac58c1d3ad929651ca8a780337e4f889520ccca35be7bd98",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Sleep Center",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "location-rehabilitation-center",
+      "content_type": "location",
+      "title": "Rehabilitation Center",
+      "slug": "locations/rehabilitation-center",
+      "purpose": "Mock apartment, adaptable furniture display and circulation diagrams for accessibility teaching.",
+      "related_ids": [
+        "service-rehabilitation",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-rehabilitation-center.md",
+      "inventory_label": "Rehabilitation Center"
+    },
+    {
+      "id": "location-childrens-clinic",
+      "content_type": "location",
+      "title": "Children’s Clinic",
+      "slug": "locations/childrens-clinic",
+      "purpose": "Fictional child-health teaching setting with a picture-book alcove and age-labelled classroom models.",
+      "related_ids": [
+        "service-pediatrics",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-childrens-clinic.md",
+      "inventory_label": "Children's Clinic"
+    },
+    {
+      "id": "location-community-health-pavilion",
+      "content_type": "location",
+      "title": "Community Health Pavilion",
+      "slug": "locations/community-health-pavilion",
+      "purpose": "Public-service teaching space with leaflet racks, a map table and space for university collections.",
+      "related_ids": [
+        "community-screening",
+        "community-health-literacy",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-community-health-pavilion.md",
+      "inventory_label": "Community Health Pavilion"
+    },
+    {
+      "id": "location-teaching-health-center",
+      "content_type": "location",
+      "title": "Teaching Health Center",
+      "slug": "locations/teaching-health-center",
+      "purpose": "Shared simulation setting for invented case discussions, blank charts and interdisciplinary classroom work.",
+      "related_ids": [
+        "service-primary-care",
+        "service-behavioral-health",
+        "hub-locations"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/location-teaching-health-center.md",
+      "inventory_label": "Teaching Health Center"
+    },
+    {
+      "id": "resource-appointment-preparation",
+      "content_type": "resource",
+      "title": "Appointment Preparation",
+      "slug": "care/resources/appointment-preparation",
+      "purpose": "Explain the parts of a fictional appointment packet and how documents are organized; no actual preparation or scheduling instructions.",
+      "related_ids": [
+        "service-primary-care",
+        "resource-referrals"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-appointment-preparation.md",
+      "inventory_label": "Appointment Preparation"
+    },
+    {
+      "id": "resource-mi-terms",
+      "content_type": "resource",
+      "title": "Myocardial Infarction Terminology",
+      "slug": "care/resources/myocardial-infarction-terminology",
+      "purpose": "Neutral definition, coronary blood-supply context and distinction from cardiac arrest; protect excluded phrase.",
+      "related_ids": [
+        "hub-care",
+        "service-cardiology"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-02 alternate-terminology target"
+      ],
+      "published_date": "2026-03-04",
+      "updated_date": "2026-09-25",
+      "status": "existing",
+      "source_file": "src/content/pages/resource-mi-terms.md",
+      "source_sha256": "68c143d5cec637d103235cd751034fc925f1dfe8e38079ffd5a18d6362017517",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Myocardial Infarction Terminology",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "resource-heart-education",
+      "content_type": "resource",
+      "title": "Heart Attack Education",
+      "slug": "care/resources/heart-attack-education",
+      "purpose": "Explain the everyday term and its relationship to myocardial infarction using sourced neutral language; no symptom/action checklist.",
+      "related_ids": [
+        "resource-mi-terms",
+        "service-cardiology"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-02 literal comparator"
+      ],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-heart-education.md",
+      "inventory_label": "Heart Attack Education"
+    },
+    {
+      "id": "resource-sleep-visit",
+      "content_type": "resource",
+      "title": "Sleep Visit Overview",
+      "slug": "care/resources/sleep-visit-overview",
+      "purpose": "Describe the layout and document labels in a fictional center orientation, without offering studies or giving preparation advice.",
+      "related_ids": [
+        "service-sleep-medicine",
+        "location-sleep-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-sleep-visit.md",
+      "inventory_label": "Sleep Visit Overview"
+    },
+    {
+      "id": "resource-cardiology-visit",
+      "content_type": "resource",
+      "title": "Visiting the Heart Center",
+      "slug": "care/resources/cardiology-visit-overview",
+      "purpose": "Introduce the fictional cardiology gallery and document collection; keep cardiology in summary/body, outside the title.",
+      "related_ids": [
+        "service-cardiology",
+        "location-heart-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-03/04 resource comparator"
+      ],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-cardiology-visit.md",
+      "inventory_label": "Cardiology Visit Overview"
+    },
+    {
+      "id": "resource-accessibility",
+      "content_type": "resource",
+      "title": "Accessibility and Language Support",
+      "slug": "care/resources/accessibility-and-language-support",
+      "purpose": "Describe large-print sample formats, glossary layouts and invented campus wayfinding conventions; no real assistance channel.",
+      "related_ids": [
+        "community-transit-access",
+        "location-rehabilitation-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-accessibility.md",
+      "inventory_label": "Accessibility and Language Support"
+    },
+    {
+      "id": "resource-visiting-hospital",
+      "content_type": "resource",
+      "title": "Visiting the Hospital",
+      "slug": "care/resources/visiting-the-hospital",
+      "purpose": "Explain a fictional campus floor-plan legend and building zones without directions, visiting hours or permission claims.",
+      "related_ids": [
+        "location-university-hospital",
+        "resource-accessibility"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-visiting-hospital.md",
+      "inventory_label": "Visiting the Hospital"
+    },
+    {
+      "id": "resource-referrals",
+      "content_type": "resource",
+      "title": "Understanding Referrals",
+      "slug": "care/resources/understanding-referrals",
+      "purpose": "Describe the vocabulary and document roles in an invented referral example without advising how to obtain care.",
+      "related_ids": [
+        "service-primary-care",
+        "resource-appointment-preparation"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/resource-referrals.md",
+      "inventory_label": "Understanding Referrals"
+    },
+    {
+      "id": "program-medicine",
+      "content_type": "program",
+      "title": "Medicine",
+      "slug": "education/medicine",
+      "purpose": "Organize academic foundations, synthetic case discussion and shared anatomy resources as a curriculum overview.",
+      "related_ids": [
+        "service-primary-care",
+        "location-teaching-health-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-medicine.md",
+      "inventory_label": "Medicine"
+    },
+    {
+      "id": "program-nursing",
+      "content_type": "program",
+      "title": "Nursing Studies",
+      "slug": "education/nursing",
+      "purpose": "Human biology, simulation recordkeeping and community vocabulary projects; retain body-only cardiology.",
+      "related_ids": [
+        "community-screening"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-03 local body-only guard"
+      ],
+      "published_date": "2026-02-16",
+      "updated_date": "2026-09-12",
+      "status": "existing",
+      "source_file": "src/content/pages/program-nursing.md",
+      "source_sha256": "5ff0fbd09e69d4db8be60d01a2f8f7e2f7f8241293358d162e568c45a5142072",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Nursing",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "program-public-health",
+      "content_type": "program",
+      "title": "Public Health",
+      "slug": "education/public-health",
+      "purpose": "Population-level study, fictional map exercises and public-information reading rather than individual care.",
+      "related_ids": [
+        "community-health-literacy",
+        "research-population-health"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-public-health.md",
+      "inventory_label": "Public Health"
+    },
+    {
+      "id": "program-biomedical-sciences",
+      "content_type": "program",
+      "title": "Biomedical Sciences",
+      "slug": "education/biomedical-sciences",
+      "purpose": "Connect anatomy model catalogues, laboratory notation and synthetic image collections.",
+      "related_ids": [
+        "service-laboratory-services",
+        "service-imaging",
+        "service-neurology"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-biomedical-sciences.md",
+      "inventory_label": "Biomedical Sciences"
+    },
+    {
+      "id": "program-cardiology-residency",
+      "content_type": "program",
+      "title": "Cardiology Residency",
+      "slug": "education/cardiology-residency",
+      "purpose": "Describe a fictional academic rotation map linking the heart-model collection, case library and research seminars.",
+      "related_ids": [
+        "service-cardiology",
+        "provider-jonah-fenwick",
+        "research-cardiovascular"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-03/04 natural topic competitor"
+      ],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-cardiology-residency.md",
+      "inventory_label": "Cardiology Residency"
+    },
+    {
+      "id": "program-sleep-medicine-fellowship",
+      "content_type": "program",
+      "title": "Sleep Medicine Fellowship",
+      "slug": "education/sleep-medicine-fellowship",
+      "purpose": "Describe an academic sequence linking sleep subject areas, sample recordings and the demonstration-room setting.",
+      "related_ids": [
+        "service-sleep-medicine",
+        "location-sleep-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-01 positive comparator"
+      ],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-sleep-medicine-fellowship.md",
+      "inventory_label": "Sleep Medicine Fellowship"
+    },
+    {
+      "id": "program-continuing-education",
+      "content_type": "program",
+      "title": "Continuing Education",
+      "slug": "education/continuing-education",
+      "purpose": "Distinguish short academic reading sessions from degree programs using a fictional topic catalogue; no enrollment offer.",
+      "related_ids": [
+        "program-medicine",
+        "program-nursing"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-continuing-education.md",
+      "inventory_label": "Continuing Education"
+    },
+    {
+      "id": "program-admissions",
+      "content_type": "program",
+      "title": "Admissions Overview",
+      "slug": "education/admissions-overview",
+      "purpose": "Explain terminology and document categories in an invented academic prospectus; no deadlines, eligibility decisions or application flow.",
+      "related_ids": [
+        "hub-education",
+        "program-continuing-education"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/program-admissions.md",
+      "inventory_label": "Admissions Overview"
+    },
+    {
+      "id": "research-cardiovascular",
+      "content_type": "research",
+      "title": "Cardiovascular Research Center",
+      "slug": "research/cardiovascular-research-center",
+      "purpose": "Describe anatomy illustration archives and how hypothetical research questions are catalogued; no study results.",
+      "related_ids": [
+        "service-cardiology",
+        "program-cardiology-residency"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/research-cardiovascular.md",
+      "inventory_label": "Cardiovascular Research Center"
+    },
+    {
+      "id": "research-sleep-health",
+      "content_type": "research",
+      "title": "Sleep Health Center",
+      "slug": "research/sleep-health-center",
+      "purpose": "Academic literature and synthetic recording collections; distinguish this research group from the Sleep Center building.",
+      "related_ids": [
+        "service-sleep-medicine",
+        "program-sleep-medicine-fellowship"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/research-sleep-health.md",
+      "inventory_label": "Sleep Health Center"
+    },
+    {
+      "id": "research-population-health",
+      "content_type": "research",
+      "title": "Population Health Center",
+      "slug": "research/population-health-center",
+      "purpose": "Describe invented aggregate map exercises and questions about public-information access; no real datasets or findings.",
+      "related_ids": [
+        "program-public-health",
+        "community-public-health-partnerships"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/research-population-health.md",
+      "inventory_label": "Population Health Center"
+    },
+    {
+      "id": "research-nursing-lab",
+      "content_type": "research",
+      "title": "Nursing Learning Lab",
+      "slug": "research/nursing-learning-lab",
+      "purpose": "Describe observation-note exercises and simulation teaching design rather than clinical experiments.",
+      "related_ids": [
+        "program-nursing",
+        "location-teaching-health-center"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/research-nursing-lab.md",
+      "inventory_label": "Nursing Learning Lab"
+    },
+    {
+      "id": "research-participation",
+      "content_type": "research",
+      "title": "Research Participation Information",
+      "slug": "research/research-participation-information",
+      "purpose": "Explain generic research-document labels and the difference between information sheets and study records; no recruitment or consent flow.",
+      "related_ids": [
+        "hub-research",
+        "research-population-health"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/research-participation.md",
+      "inventory_label": "Research Participation Information"
+    },
+    {
+      "id": "community-screening",
+      "content_type": "community",
+      "title": "Community Screening Information",
+      "slug": "community/community-screening",
+      "purpose": "Enduring screening-vocabulary reading collection, distinct from dated library changes.",
+      "related_ids": [
+        "program-nursing",
+        "news-screening-2024",
+        "news-screening-2025",
+        "news-screening-2026",
+        "location-community-health-pavilion",
+        "program-public-health"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-05 newest date",
+        "DEMO-05 term-frequency candidate"
+      ],
+      "published_date": "2026-08-15",
+      "updated_date": "2026-09-30",
+      "status": "existing",
+      "source_file": "src/content/pages/community-screening.md",
+      "source_sha256": "97025b3e34f0ca906596e55f7e27c340d2703feb5facfd86761e055e8f9a9cd7",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Community Screening",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "community-transit-access",
+      "content_type": "community",
+      "title": "Transit Access",
+      "slug": "community/transit-access",
+      "purpose": "Explain how fictional campus map symbols distinguish pedestrian routes, covered links and transit concepts; no real schedules.",
+      "related_ids": [
+        "location-community-health-pavilion",
+        "resource-accessibility"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/community-transit-access.md",
+      "inventory_label": "Transit Access"
+    },
+    {
+      "id": "community-public-health-partnerships",
+      "content_type": "community",
+      "title": "Public Health Partnerships",
+      "slug": "community/public-health-partnerships",
+      "purpose": "Map fictional university departments’ responsibilities for shared reading collections; no real partner organizations.",
+      "related_ids": [
+        "program-public-health",
+        "research-population-health"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/community-public-health-partnerships.md",
+      "inventory_label": "Public Health Partnerships"
+    },
+    {
+      "id": "community-health-literacy",
+      "content_type": "community",
+      "title": "Health Literacy",
+      "slug": "community/health-literacy",
+      "purpose": "Show how glossary cards, large-print layouts and plain-language labels differ in educational material.",
+      "related_ids": [
+        "resource-accessibility",
+        "program-public-health",
+        "provider-anika-pellan"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/community-health-literacy.md",
+      "inventory_label": "Health Literacy"
+    },
+    {
+      "id": "community-school-health",
+      "content_type": "community",
+      "title": "School Health Education",
+      "slug": "community/school-health-education",
+      "purpose": "Describe age-appropriate fictional campus reading kits and teacher-facing topic cards without health advice.",
+      "related_ids": [
+        "service-pediatrics",
+        "location-childrens-clinic"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-03-16",
+      "updated_date": "2026-09-28",
+      "status": "planned",
+      "source_file": "src/content/pages/community-school-health.md",
+      "inventory_label": "School Health Education"
+    },
+    {
+      "id": "news-screening-2024",
+      "content_type": "news",
+      "title": "Community Screening Archive 2024 — Historical Notice",
+      "slug": "news/community-screening-archive-2024",
+      "purpose": "Historical library-room reassignment consolidating screening reference materials; preserve the existing invented event.",
+      "related_ids": [
+        "community-screening"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-05 oldest date",
+        "DEMO-05 term-frequency candidate"
+      ],
+      "published_date": "2024-04-12",
+      "updated_date": "2024-04-12",
+      "status": "existing",
+      "source_file": "src/content/pages/news-screening-2024.md",
+      "source_sha256": "92d0da84616541ab34d9232ee398b4b29e445bcb58aec859767dc6e4fdf6ef02",
+      "preserve_existing_copy": true,
+      "permitted_later_change": "Add only planned relationship edges and document links; any copy revision requires a concrete integration need and retained controls.",
+      "inventory_label": "Community Screening Archive 2024",
+      "preserve_existing_frontmatter_except_planned_relationship_additions": true
+    },
+    {
+      "id": "news-screening-2025",
+      "content_type": "news",
+      "title": "Community Screening Update 2025",
+      "slug": "news/community-screening-update-2025",
+      "purpose": "Historical decision to reorganize the screening collection catalogue into vocabulary, leaflets and dated notices; no event or outcomes.",
+      "related_ids": [
+        "community-screening",
+        "news-screening-2024"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-05 middle date"
+      ],
+      "published_date": "2025-04-12",
+      "updated_date": "2025-04-12",
+      "status": "planned",
+      "source_file": "src/content/pages/news-screening-2025.md",
+      "inventory_label": "Community Screening Update 2025"
+    },
+    {
+      "id": "news-screening-2026",
+      "content_type": "news",
+      "title": "Community Screening Update 2026",
+      "slug": "news/community-screening-update-2026",
+      "purpose": "Historical addition of a reading-copy display at the Community Health Pavilion, distinct from the library collection move.",
+      "related_ids": [
+        "community-screening",
+        "location-community-health-pavilion",
+        "news-screening-2025"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [
+        "DEMO-05 recent news date"
+      ],
+      "published_date": "2026-04-12",
+      "updated_date": "2026-04-12",
+      "status": "planned",
+      "source_file": "src/content/pages/news-screening-2026.md",
+      "inventory_label": "Community Screening Update 2026"
+    },
+    {
+      "id": "news-library-opening",
+      "content_type": "news",
+      "title": "Teaching Library Opening",
+      "slug": "news/teaching-library-opening",
+      "purpose": "Dated fictional opening of an illustrated anatomy reading room and explanation of its collection arrangement.",
+      "related_ids": [
+        "location-university-hospital",
+        "program-biomedical-sciences"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-06-09",
+      "updated_date": "2026-06-09",
+      "status": "planned",
+      "source_file": "src/content/pages/news-library-opening.md",
+      "inventory_label": "Teaching Library Opening"
+    },
+    {
+      "id": "news-nursing-open-day",
+      "content_type": "news",
+      "title": "Nursing Open Day",
+      "slug": "news/nursing-open-day",
+      "purpose": "Past fictional display day for simulation-room teaching objects and curriculum posters; no future invitation or registration.",
+      "related_ids": [
+        "program-nursing",
+        "research-nursing-lab"
+      ],
+      "service_ids": [],
+      "location_ids": [],
+      "scenario_roles": [],
+      "published_date": "2026-07-14",
+      "updated_date": "2026-07-14",
+      "status": "planned",
+      "source_file": "src/content/pages/news-nursing-open-day.md",
+      "inventory_label": "Nursing Open Day"
+    }
+  ],
+  "pdfs": [
+    {
+      "id": "pdf-appointment-preparation",
+      "title": "Appointment Packet Guide",
+      "parent_id": "resource-appointment-preparation",
+      "url_path": "pdfs/appointment-preparation.pdf",
+      "future_source_file": "src/content/documents/appointment-preparation.md",
+      "future_output_file": "public/pdfs/appointment-preparation.pdf",
+      "purpose": "Illustrated-text catalogue of fictional packet sections and blank document labels, not preparation instructions.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    },
+    {
+      "id": "pdf-sleep-visit-overview",
+      "title": "Sleep Center Demonstration Rooms",
+      "parent_id": "resource-sleep-visit",
+      "url_path": "pdfs/sleep-visit-overview.pdf",
+      "future_source_file": "src/content/documents/sleep-visit-overview.md",
+      "future_output_file": "public/pdfs/sleep-visit-overview.pdf",
+      "purpose": "Text-led room-by-room orientation to invented teaching spaces, distinct from the HTML document-label overview.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    },
+    {
+      "id": "pdf-cardiology-visit-overview",
+      "title": "Heart Center Collection Guide",
+      "parent_id": "resource-cardiology-visit",
+      "url_path": "pdfs/cardiology-visit-overview.pdf",
+      "future_source_file": "src/content/documents/cardiology-visit-overview.md",
+      "future_output_file": "public/pdfs/cardiology-visit-overview.pdf",
+      "purpose": "Describe three labelled teaching exhibits and their catalogue organization, without clinical instruction.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    },
+    {
+      "id": "pdf-nursing-program-overview",
+      "title": "Nursing Classroom Materials",
+      "parent_id": "program-nursing",
+      "url_path": "pdfs/nursing-program-overview.pdf",
+      "future_source_file": "src/content/documents/nursing-program-overview.md",
+      "future_output_file": "public/pdfs/nursing-program-overview.pdf",
+      "purpose": "Inventory simulation props and distinguish observations, assumptions and invented chart entries.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    },
+    {
+      "id": "pdf-community-screening-overview",
+      "title": "Community Screening Reading Collection",
+      "parent_id": "community-screening",
+      "url_path": "pdfs/community-screening-overview.pdf",
+      "future_source_file": "src/content/documents/community-screening-overview.md",
+      "future_output_file": "public/pdfs/community-screening-overview.pdf",
+      "purpose": "Compare vocabulary cards, sample leaflets and archival notices as enduring reading material, without a screening schedule.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    },
+    {
+      "id": "pdf-research-participation-overview",
+      "title": "Research Document Vocabulary",
+      "parent_id": "research-participation",
+      "url_path": "pdfs/research-participation-overview.pdf",
+      "future_source_file": "src/content/documents/research-participation-overview.md",
+      "future_output_file": "public/pdfs/research-participation-overview.pdf",
+      "purpose": "Explain document headings in a fictional research information set; no study invitation or consent form.",
+      "status": "planned",
+      "scenario_role": "Supplementary corpus record; verify indexed eligibility separately, never assume HTML metadata parity."
+    }
+  ]
+}

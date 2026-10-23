@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+
+# Local operational records and review evidence stay out of the public repository.
+AGENTS.md
+artifacts/
+docs/*
+!docs/checkpoint-3-corpus-manifest.json
+.venv/
+__pycache__/
+.env
+.env.*

@@ -1,0 +1,31 @@
+{
+  "name": "Alder Coast University Health",
+  "university": "Alder Coast University",
+  "location": "Alder Coast, Oregon · Fictional location",
+  "notice": "Fictional demonstration website. Not a real healthcare provider.",
+  "home": {
+    "slug": "",
+    "content_type": "hub",
+    "title": "Care, learning and community.",
+    "summary": "Explore the people, places and ideas of Alder Coast University Health — a fictional public university health system on the Oregon coast.",
+    "audience": [
+      "patient",
+      "student",
+      "community"
+    ],
+    "published_date": "2026-10-01",
+    "updated_date": "2026-10-22",
+    "related_ids": [
+      "hub-care",
+      "program-nursing",
+      "community-screening",
+      "news-screening-2024",
+      "hub-about",
+      "hub-education",
+      "hub-research",
+      "hub-locations",
+      "hub-community",
+      "hub-news"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+---
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageCards from '../components/PageCards.astro';
+import documents from '../data/documents.json';
+import { getPages, pageHref, fileHref, typeLabels } from '../lib/pages';
+
+export async function getStaticPaths() {
+  const pages = await getPages();
+  return pages.map((page) => ({ params: { slug: page.data.slug }, props: { page, pages } }));
+}
+interface Props { page: CollectionEntry<'pages'>; pages: CollectionEntry<'pages'>[]; }
+const { page, pages } = Astro.props;
+const { data } = page;
+const resolve = (ids: string[]) => ids.map((id) => {
+  const record = pages.find((entry) => entry.id === id);
+  if (!record) throw new Error(`${page.id}: missing record ${id}`);
+  return record;
+});
+const locations = resolve(data.location_ids);
+const services = resolve(data.service_ids);
+const related = resolve(data.related_ids);
+const pageDocuments = documents.filter(({ parent_id }) => parent_id === page.id);
+const { Content } = await render(page);
+const isHub = data.content_type === 'hub';
+const parentSlug = data.slug.startsWith('care/') ? 'care' : data.slug.split('/').length > 1 ? data.slug.split('/')[0] : '';
+const parentLabels: Record<string, string> = { care: 'Care', education: 'Education', research: 'Research', locations: 'Locations', community: 'Community', news: 'News' };
+const parentLabel = parentLabels[parentSlug];
+const groups = [
+  { title: 'University sections', type: 'hub' },
+  { title: 'Clinical services', type: 'service' },
+  { title: 'Provider profiles', type: 'provider' },
+  { title: 'Patient resources', type: 'resource' },
+  { title: 'Locations', type: 'location' },
+  { title: 'Academic programs', type: 'program' },
+  { title: 'Research groups and information', type: 'research' },
+  { title: 'Community programs', type: 'community' },
+  { title: 'Historical notices', type: 'news' },
+];
+---
+<SiteLayout page={data} locationNames={locations.map(({ data }) => data.title)}>
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol><li><a href={pageHref()}>Home</a></li>{parentLabel && <li><a href={pageHref(parentSlug)}>{parentLabel}</a></li>}<li aria-current="page">{data.title}</li></ol>
+    </nav>
+    <header class="page-heading"><p class="eyebrow">{typeLabels[data.content_type]}</p><h1>{data.title}</h1></header>
+    <div class:list={['detail-grid', { 'hub-content': isHub }]}>
+      <article class="article-content" aria-label={data.title}>
+        <div class="search-body"><p class="lead">{data.summary}</p><Content /></div>
+        {pageDocuments.length > 0 && <section class="related-section" aria-labelledby="documents-heading"><h2 id="documents-heading">Reading guides</h2><ul>{pageDocuments.map(({ title, path }) => <li><a href={fileHref(path)}>{title}</a> (PDF)</li>)}</ul></section>}
+        {isHub ? groups.map(({ title, type }) => {
+          const group = related.filter((entry) => entry.data.content_type === type);
+          if (type === 'news') group.sort((a, b) => b.data.published_date.localeCompare(a.data.published_date));
+          return group.length > 0 && <section class="hub-group"><h2>{title}</h2><PageCards pages={group} /></section>;
+        }) : related.length > 0 && <section class="related-section" aria-labelledby="related-heading"><p class="eyebrow">Connected at Alder Coast</p><h2 id="related-heading">Related information</h2><PageCards pages={related} /></section>}
+      </article>
+      {!isHub && <aside class="facts-panel" aria-label="Page information">
+        <h2>At a glance</h2>
+        <dl>
+          <div><dt>Content type</dt><dd>{typeLabels[data.content_type]}</dd></div>
+          {data.department && <div><dt>Department</dt><dd>{data.department}</dd></div>}
+          {data.service_line && <div><dt>Service line</dt><dd>{data.service_line}</dd></div>}
+          {data.specialty.length > 0 && <div><dt>Specialty</dt><dd>{data.specialty.join(', ')}</dd></div>}
+          {locations.length > 0 && <div><dt>Location</dt><dd>{locations.map(({ data }) => <a href={pageHref(data.slug)}>{data.title}</a>)}</dd></div>}
+          {services.length > 0 && <div><dt>Associated service</dt><dd>{services.map(({ data }) => <a href={pageHref(data.slug)}>{data.title}</a>)}</dd></div>}
+          <div><dt>Audience</dt><dd>{data.audience.map((audience) => <span class="audience-label">{audience}</span>)}</dd></div>
+          <div><dt>Published</dt><dd><time datetime={data.published_date}>{data.published_date}</time></dd></div>
+          <div><dt>Updated</dt><dd><time datetime={data.updated_date}>{data.updated_date}</time></dd></div>
+        </dl>
+        <p class="facts-note">Fictional institutional information. No services or appointments are available through this website.</p>
+      </aside>}
+    </div>
+    {isHub && <p class="editorial-note">Demonstration content · Updated <time datetime={data.updated_date}>{data.updated_date}</time></p>}
+  </div>
+</SiteLayout>

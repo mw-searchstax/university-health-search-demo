@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pdf-appointment-preparation",
+    "title": "Appointment Packet Guide",
+    "parent_id": "resource-appointment-preparation",
+    "source": "src/content/documents/appointment-preparation.md",
+    "path": "pdfs/appointment-preparation.pdf"
+  },
+  {
+    "id": "pdf-sleep-visit-overview",
+    "title": "Sleep Center Demonstration Rooms",
+    "parent_id": "resource-sleep-visit",
+    "source": "src/content/documents/sleep-visit-overview.md",
+    "path": "pdfs/sleep-visit-overview.pdf"
+  },
+  {
+    "id": "pdf-cardiology-visit-overview",
+    "title": "Heart Center Collection Guide",
+    "parent_id": "resource-cardiology-visit",
+    "source": "src/content/documents/cardiology-visit-overview.md",
+    "path": "pdfs/cardiology-visit-overview.pdf"
+  },
+  {
+    "id": "pdf-nursing-program-overview",
+    "title": "Nursing Classroom Materials",
+    "parent_id": "program-nursing",
+    "source": "src/content/documents/nursing-program-overview.md",
+    "path": "pdfs/nursing-program-overview.pdf"
+  },
+  {
+    "id": "pdf-community-screening-overview",
+    "title": "Community Screening Reading Collection",
+    "parent_id": "community-screening",
+    "source": "src/content/documents/community-screening-overview.md",
+    "path": "pdfs/community-screening-overview.pdf"
+  },
+  {
+    "id": "pdf-research-participation-overview",
+    "title": "Research Document Vocabulary",
+    "parent_id": "research-participation",
+    "source": "src/content/documents/research-participation-overview.md",
+    "path": "pdfs/research-participation-overview.pdf"
+  }
+]

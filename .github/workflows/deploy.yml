@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '26.8.2'
+          cache: npm
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12.14'
+          cache: pip
+          cache-dependency-path: requirements-pdf.txt
+      - name: Install existing build dependencies
+        run: |
+          npm ci
+          python -m pip install -r requirements-pdf.txt
+      - name: Test, build and validate corpus
+        run: npm run check
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload validated site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

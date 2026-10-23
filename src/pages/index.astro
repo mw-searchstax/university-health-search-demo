@@ -1,0 +1,45 @@
+---
+import site from '../data/site.json';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageCards from '../components/PageCards.astro';
+import { pageSchema } from '../lib/content';
+import { getPages, pageHref } from '../lib/pages';
+
+const page = pageSchema.parse(site.home);
+const pages = await getPages();
+const featured = page.related_ids.map((id) => {
+  const record = pages.find((entry) => entry.id === id);
+  if (!record) throw new Error(`Homepage references missing record ${id}`);
+  return record;
+});
+---
+<SiteLayout page={page}>
+  <section class="home-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Alder Coast University · Oregon</p>
+        <div class="search-body">
+          <h1>{page.title}</h1>
+          <p class="hero-lead">{page.summary}</p>
+        </div>
+        <a class="button-link" href={pageHref('care')}>Explore our care directory <span aria-hidden="true">→</span></a>
+        <p class="hero-note">A fictional institution. A place to explore.</p>
+      </div>
+      <div class="coastal-panel" aria-hidden="true">
+        <div class="coastal-sun"></div><div class="coastal-shore shore-one"></div><div class="coastal-shore shore-two"></div><div class="coastal-shore shore-three"></div>
+        <div class="coastal-caption">ALDER COAST<br /><span>UNIVERSITY HEALTH</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section container" aria-labelledby="explore-heading">
+    <div class="section-heading"><div><p class="eyebrow">One university. A shared purpose.</p><h2 id="explore-heading">Explore Alder Coast</h2></div><p>Clinical departments, education and community programs, connected through a public university.</p></div>
+    <PageCards pages={featured} />
+  </section>
+  <section class="community-band">
+    <div class="container community-grid">
+      <div><p class="eyebrow">Learning beyond the classroom</p><h2>Knowledge that connects<br />people and places.</h2></div>
+      <div><p>At Alder Coast, the fictional university's teaching programs sit alongside clinical departments and public-service work. Explore how nursing education and community outreach fit into that shared setting.</p><a class="text-link" href={pageHref('education/nursing')}>Discover nursing education <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+  <div class="container editorial-note"><p>Demonstration content · Updated <time datetime={page.updated_date}>{page.updated_date}</time></p></div>
+</SiteLayout>

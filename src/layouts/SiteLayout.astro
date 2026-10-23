@@ -1,0 +1,63 @@
+---
+import site from '../data/site.json';
+import { pageHref } from '../lib/pages';
+import type { PageData } from '../lib/content';
+import '../styles/global.css';
+
+interface Props {
+  page: PageData;
+  locationNames?: string[];
+}
+const { page, locationNames = [] } = Astro.props;
+const canonical = new URL(pageHref(page.slug), Astro.site);
+const navigation = [
+  { label: 'Explore care', slug: 'care' },
+  { label: 'Nursing education', slug: 'education/nursing' },
+  { label: 'Community', slug: 'community/community-screening' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{page.title} | {site.name}</title>
+    <meta name="description" content={page.summary} />
+    <link rel="canonical" href={canonical} />
+    <meta name="demo-content-type" content={page.content_type} />
+    {page.audience.map((value) => <meta name="demo-audience" content={value} />)}
+    {page.department && <meta name="demo-department" content={page.department} />}
+    {page.service_line && <meta name="demo-service-line" content={page.service_line} />}
+    {page.specialty.map((value) => <meta name="demo-specialty" content={value} />)}
+    {locationNames.map((value) => <meta name="demo-location" content={value} />)}
+    <meta name="demo-published-date" content={`${page.published_date}T00:00:00Z`} />
+    <meta name="demo-updated-date" content={`${page.updated_date}T00:00:00Z`} />
+    {page.keywords.length > 0 && <meta name="keywords" content={page.keywords.join(', ')} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="demo-notice"><div class="container"><span class="notice-dot" aria-hidden="true"></span>{site.notice}</div></div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href={pageHref()} aria-label={`${site.name} home`}>
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M7 31C17 17 25 38 41 19M7 39C17 25 25 46 41 27M7 23C17 9 25 30 41 11" stroke="currentColor" stroke-width="3" />
+          </svg>
+          <span><span class="wordmark-name">Alder Coast</span><span class="wordmark-subtitle">University Health</span></span>
+        </a>
+        <nav aria-label="Main navigation">
+          {navigation.map(({ label, slug }) => <a href={pageHref(slug)} aria-current={page.slug === slug ? 'page' : undefined}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><p class="footer-name">{site.name}</p><p>A fictional academic health system<br />and part of {site.university}.</p></div>
+        <div><p class="footer-label">A shared public purpose</p><p>{site.location}</p><a href={pageHref('care')}>Explore the care directory <span aria-hidden="true">→</span></a></div>
+        <div><p class="footer-label">About this website</p><p>Sample institutional content for search training. No clinical services, appointments or personal information are available here.</p></div>
+      </div>
+      <div class="container footer-bottom"><span>Fictional demonstration · 2026</span><span>Care · Education · Public service</span></div>
+    </footer>
+  </body>
+</html>
