@@ -12,6 +12,9 @@ related_ids:
   - news-screening-2026
   - news-library-opening
   - news-nursing-open-day
+  - news-flu-clinics-2024
+  - news-flu-clinics-2025
+  - news-flu-clinics-2026
 ---
 
 ## Changes recorded over time

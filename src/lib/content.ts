@@ -34,10 +34,19 @@ export const pageSchema = z.object({
   service_ids: z.array(recordId).default([]),
   location_ids: z.array(recordId).default([]),
   keywords: z.array(text).default([]),
+  service_names: z.array(text).min(1).optional(),
+  open_for_enrollment: z.boolean().optional(),
 }).strict().superRefine((page, ctx) => {
   const issue = (path: string, message: string) => ctx.addIssue({ code: 'custom', path: [path], message });
   if (page.published_date > page.updated_date) issue('updated_date', 'Updated date precedes publication');
   if (page.updated_date > editorialCutoff) issue('updated_date', `Date exceeds editorial cutoff ${editorialCutoff}`);
+  if (page.service_names !== undefined) {
+    if (page.content_type !== 'service') issue('service_names', 'Service names are only allowed on services');
+    if (new Set(page.service_names).size !== page.service_names.length) issue('service_names', 'Service names must be unique');
+  }
+  if (page.open_for_enrollment !== undefined && page.content_type !== 'program') {
+    issue('open_for_enrollment', 'Enrollment status is only allowed on programs');
+  }
   if (page.content_type === 'hub') {
     if (!['', 'about', 'care', 'education', 'research', 'locations', 'community', 'news'].includes(page.slug)) {
       issue('slug', 'Unknown institutional hub route');

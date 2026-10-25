@@ -27,7 +27,7 @@ const navigation = [
     <meta name="demo-content-type" content={page.content_type} />
     {page.audience.map((value) => <meta name="demo-audience" content={value} />)}
     {page.department && <meta name="demo-department" content={page.department} />}
-    {page.service_line && <meta name="demo-service-line" content={page.service_line} />}
+    {page.service_line && <meta name="demo-service-line" content={page.service_line} />}{page.service_names?.map((value) => <meta name="demo-service-name" content={value} />)}{page.open_for_enrollment !== undefined && <meta name="demo-open-for-enrollment" content={page.open_for_enrollment ? 'true' : 'false'} />}
     {page.specialty.map((value) => <meta name="demo-specialty" content={value} />)}
     {locationNames.map((value) => <meta name="demo-location" content={value} />)}
     <meta name="demo-published-date" content={`${page.published_date}T00:00:00Z`} />

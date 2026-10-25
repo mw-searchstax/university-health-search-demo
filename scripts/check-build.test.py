@@ -12,10 +12,77 @@ checks = runpy.run_path(str(Path(__file__).with_name("check-build.py")))
 
 class BuildCheckerTests(unittest.TestCase):
     def test_manifest_freezes_86_routes_and_six_documents(self):
-        self.assertEqual(len(checks["ROUTES"]), 86)
+        self.assertEqual(len(checks["_manifest"]["html"]), 86)
+        self.assertEqual(len(checks["ROUTES"]), 96)
         self.assertEqual(len(checks["PDFS"]), 6)
         self.assertEqual(checks["ROUTES"]["/"], "index.html")
         checks["validate_frozen_manifest"]()
+
+    def test_script_projection_rejects_missing_addition_and_date_drift(self):
+        globals_ = checks["validate_frozen_manifest"].__globals__
+        additions = globals_["_additions"]
+        original_dates = dict(globals_["ADDED_DATES"])
+        try:
+            removed = additions.pop()
+            with self.assertRaisesRegex(checks["CheckFailure"], "exact ten approved addition IDs"):
+                checks["validate_frozen_manifest"]()
+            additions.append(removed)
+            globals_["ADDED_DATES"]["news-flu-clinics-2025"] = ("2025-09-16", "2025-09-15")
+            with self.assertRaisesRegex(checks["CheckFailure"], "fixed D-039 dates"):
+                checks["validate_frozen_manifest"]()
+        finally:
+            if len(additions) < 10:
+                additions.append(removed)
+            globals_["ADDED_DATES"].clear()
+            globals_["ADDED_DATES"].update(original_dates)
+
+    def test_script_projection_rejects_allowed_but_wrong_content_type(self):
+        globals_ = checks["validate_frozen_manifest"].__globals__
+        additions = globals_["_additions"]
+        row = next(item for item in additions if item["id"] == "program-business-administration")
+        original_type = row["content_type"]
+        try:
+            row["content_type"] = "service"
+            with self.assertRaisesRegex(checks["CheckFailure"], "match its frozen ID prefix"):
+                checks["validate_frozen_manifest"]()
+        finally:
+            row["content_type"] = original_type
+
+    def test_optional_metadata_requires_explicit_false_and_absence(self):
+        parser = checks["PageParser"]()
+        parser.feed('<meta name="demo-open-for-enrollment" content="false">')
+        row = checks["_added_by_id"]["program-nursing-community-practice"]
+        checks["check_optional_metadata"](parser, row, "Closed (fictional)", "community-practice.html")
+        parser.meta["demo-open-for-enrollment"] = []
+        with self.assertRaisesRegex(checks["CheckFailure"], "exact lowercase Boolean"):
+            checks["check_optional_metadata"](parser, row, "Closed (fictional)", "community-practice.html")
+        old = checks["HTML_BY_ID"]["program-nursing"]
+        parser.meta["demo-open-for-enrollment"] = ["false"]
+        with self.assertRaisesRegex(checks["CheckFailure"], "absent from every original page"):
+            checks["check_optional_metadata"](parser, old, "", "nursing.html")
+
+    def test_source_boolean_rejects_quoted_false_and_relationship_yaml_forms(self):
+        literal = checks["strict_boolean_literal"]
+        literal("open_for_enrollment: false", "open_for_enrollment", False, "course.md")
+        with self.assertRaisesRegex(checks["CheckFailure"], "unquoted strict YAML Boolean"):
+            literal('open_for_enrollment: "false"', "open_for_enrollment", False, "course.md")
+        parse = checks["parse_related_ids"]
+        expected = ["hub-care", "resource-flu-shot-appointments"]
+        self.assertEqual(parse("related_ids: [hub-care, resource-flu-shot-appointments]"), expected)
+        self.assertEqual(parse("related_ids:\n  - hub-care\n  - resource-flu-shot-appointments"), expected)
+
+    def test_lexical_controls_reject_mba_leak_and_plural_title_drift(self):
+        guard = checks["check_script_lexical_controls"]
+        with self.assertRaisesRegex(checks["CheckFailure"], "exclude the MBA"):
+            guard("program-business-administration", "Master of Business Administration", "An MBA curriculum", "Case work", "business.html")
+        with self.assertRaisesRegex(checks["CheckFailure"], "exact plural flu shots"):
+            guard("resource-flu-shot-appointments", "Flu Shot Information", "A fictional notice", "Flu shots details", "flu.html")
+
+    def test_international_health_excludes_each_search_word_individually(self):
+        guard = checks["check_script_lexical_controls"]
+        for leaking_word in ("travel", "vaccinations"):
+            with self.subTest(leaking_word=leaking_word), self.assertRaisesRegex(checks["CheckFailure"], "exclude travel and vaccinations"):
+                guard("service-international-health", "International Health", "A neutral summary", f"Reference notes include {leaking_word}.", "international-health.html")
 
     def test_manifest_source_inventory_matches_85_frontmatter_records(self):
         checks["check_source_collection"]()

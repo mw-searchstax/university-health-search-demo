@@ -15,6 +15,10 @@ related_ids:
   - program-sleep-medicine-fellowship
   - program-continuing-education
   - program-admissions
+  - program-business-administration
+  - program-nursing-foundations
+  - program-nursing-community-practice
+  - program-nursing-simulation
 ---
 
 ## Foundations and advanced study
@@ -27,4 +31,4 @@ Cardiology Residency and Sleep Medicine Fellowship connect a narrower subject ar
 
 Continuing Education outlines a short-topic reading catalogue. Admissions Overview explains the labels used in an invented academic prospectus, rather than offering an application process.
 
-These are curriculum descriptions for a fictional university. They include no enrollment status, eligibility decisions, deadlines or submission forms.
+These are curriculum descriptions for a fictional university. Any enrollment labels are fictional demonstration data; these pages provide no real enrollment availability, eligibility decisions, deadlines or submission forms.

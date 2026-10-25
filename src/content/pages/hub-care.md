@@ -62,6 +62,9 @@ related_ids:
   - resource-accessibility
   - resource-visiting-hospital
   - resource-referrals
+  - service-international-health
+  - service-general-health-services
+  - resource-flu-shot-appointments
 ---
 
 ## Find a department or a person

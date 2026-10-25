@@ -1,0 +1,189 @@
+[
+  {
+    "id": "service-international-health",
+    "slug": "care/services/international-health",
+    "content_type": "service",
+    "title": "International Health",
+    "source_file": "src/content/pages/service-international-health.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "community",
+      "student",
+      "faculty"
+    ],
+    "related_ids": [
+      "hub-care",
+      "service-primary-care"
+    ],
+    "service_line": "Public Health",
+    "service_names": [
+      "Travel Vaccinations"
+    ]
+  },
+  {
+    "id": "program-business-administration",
+    "slug": "education/master-of-business-administration",
+    "content_type": "program",
+    "title": "Master of Business Administration",
+    "source_file": "src/content/pages/program-business-administration.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "student",
+      "faculty"
+    ],
+    "related_ids": [
+      "hub-education"
+    ]
+  },
+  {
+    "id": "resource-flu-shot-appointments",
+    "slug": "care/resources/flu-shot-appointments",
+    "content_type": "resource",
+    "title": "Flu Shots: Appointment Information",
+    "source_file": "src/content/pages/resource-flu-shot-appointments.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "community",
+      "patient"
+    ],
+    "related_ids": [
+      "hub-care",
+      "service-general-health-services"
+    ]
+  },
+  {
+    "id": "service-general-health-services",
+    "slug": "care/services/general-health-services",
+    "content_type": "service",
+    "title": "General Health Services",
+    "source_file": "src/content/pages/service-general-health-services.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "community",
+      "patient",
+      "student"
+    ],
+    "related_ids": [
+      "hub-care",
+      "resource-flu-shot-appointments",
+      "service-international-health"
+    ],
+    "service_line": "Community Health"
+  },
+  {
+    "id": "program-nursing-foundations",
+    "slug": "education/nursing-foundations",
+    "content_type": "program",
+    "title": "Nursing Foundations",
+    "source_file": "src/content/pages/program-nursing-foundations.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "student",
+      "faculty"
+    ],
+    "related_ids": [
+      "hub-education",
+      "program-nursing"
+    ],
+    "open_for_enrollment": true
+  },
+  {
+    "id": "program-nursing-community-practice",
+    "slug": "education/nursing-community-practice",
+    "content_type": "program",
+    "title": "Nursing Community Practice",
+    "source_file": "src/content/pages/program-nursing-community-practice.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "student",
+      "faculty",
+      "community"
+    ],
+    "related_ids": [
+      "hub-education",
+      "program-nursing"
+    ],
+    "open_for_enrollment": false
+  },
+  {
+    "id": "program-nursing-simulation",
+    "slug": "education/nursing-simulation",
+    "content_type": "program",
+    "title": "Nursing Simulation",
+    "source_file": "src/content/pages/program-nursing-simulation.md",
+    "published_date": "2026-03-16",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "student",
+      "faculty"
+    ],
+    "related_ids": [
+      "hub-education",
+      "program-nursing"
+    ],
+    "open_for_enrollment": true
+  },
+  {
+    "id": "news-flu-clinics-2024",
+    "slug": "news/flu-clinic-update-2024",
+    "content_type": "news",
+    "title": "Flu Clinic Updates — 2024 Archive",
+    "source_file": "src/content/pages/news-flu-clinics-2024.md",
+    "published_date": "2024-09-15",
+    "updated_date": "2024-09-15",
+    "audience": [
+      "community",
+      "faculty",
+      "student"
+    ],
+    "related_ids": [
+      "hub-news",
+      "resource-flu-shot-appointments",
+      "service-general-health-services"
+    ]
+  },
+  {
+    "id": "news-flu-clinics-2025",
+    "slug": "news/flu-clinic-update-2025",
+    "content_type": "news",
+    "title": "Flu Clinic Updates — 2025 Archive",
+    "source_file": "src/content/pages/news-flu-clinics-2025.md",
+    "published_date": "2025-09-15",
+    "updated_date": "2025-09-15",
+    "audience": [
+      "community",
+      "faculty",
+      "student"
+    ],
+    "related_ids": [
+      "hub-news",
+      "resource-flu-shot-appointments",
+      "service-general-health-services"
+    ]
+  },
+  {
+    "id": "news-flu-clinics-2026",
+    "slug": "news/flu-clinic-update-2026",
+    "content_type": "news",
+    "title": "Flu Clinic Updates — 2026 Notice",
+    "source_file": "src/content/pages/news-flu-clinics-2026.md",
+    "published_date": "2026-09-15",
+    "updated_date": "2026-09-15",
+    "audience": [
+      "community",
+      "faculty",
+      "student"
+    ],
+    "related_ids": [
+      "hub-news",
+      "resource-flu-shot-appointments",
+      "service-general-health-services"
+    ]
+  }
+]

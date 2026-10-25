@@ -60,7 +60,7 @@ const groups = [
         <dl>
           <div><dt>Content type</dt><dd>{typeLabels[data.content_type]}</dd></div>
           {data.department && <div><dt>Department</dt><dd>{data.department}</dd></div>}
-          {data.service_line && <div><dt>Service line</dt><dd>{data.service_line}</dd></div>}
+          {data.service_line && <div><dt>Service line</dt><dd>{data.service_line}</dd></div>}{data.service_names && <div><dt>Service names</dt><dd>{data.service_names.join(', ')}</dd></div>}{data.open_for_enrollment !== undefined && <div><dt>Demonstration enrollment status</dt><dd>{data.open_for_enrollment ? 'Open (fictional)' : 'Closed (fictional)'}</dd></div>}
           {data.specialty.length > 0 && <div><dt>Specialty</dt><dd>{data.specialty.join(', ')}</dd></div>}
           {locations.length > 0 && <div><dt>Location</dt><dd>{locations.map(({ data }) => <a href={pageHref(data.slug)}>{data.title}</a>)}</dd></div>}
           {services.length > 0 && <div><dt>Associated service</dt><dd>{services.map(({ data }) => <a href={pageHref(data.slug)}>{data.title}</a>)}</dd></div>}

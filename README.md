@@ -1,6 +1,6 @@
 # Alder Coast University Health
 
-A fictional public university health system in Alder Coast, Oregon, created as content for Site Search training. The corpus contains **86 static HTML pages and six text-based PDFs**. It has no visitor-facing search interface, real clinical services, contact channels, patient data or submission forms.
+A fictional public university health system in Alder Coast, Oregon, created as content for Site Search training. The local corpus contains **96 static HTML pages and six text-based PDFs**. It has no visitor-facing search interface, real clinical services, contact channels, patient data or submission forms. This count describes local source and output, not verified public or indexed coverage.
 
 **Fictional demonstration website. Not a real healthcare provider.**
 
@@ -21,7 +21,7 @@ Open the project path `/university-health-search-demo/` at the Local URL printed
 
 ## Content and deployment
 
-The [corpus manifest](docs/checkpoint-3-corpus-manifest.json) records the approved inventory and scenario fixtures. Its preparation-stage status is historical; all 86 HTML pages and six PDFs have since been implemented. The 85 Markdown page records live in `src/content/pages/`; the standalone homepage uses `src/data/site.json`. Reviewable PDF sources live in `src/content/documents/`, with their parent links and output paths in `src/data/documents.json`.
+The [corpus manifest](docs/checkpoint-3-corpus-manifest.json) preserves the original 86-page / six-PDF inventory. The [supplemental fixture manifest](src/data/script-fixtures.json) adds ten HTML records; validators check the exact combined inventory. The 95 Markdown page records live in `src/content/pages/`; the standalone homepage uses `src/data/site.json`. Reviewable PDF sources live in `src/content/documents/`, with their parent links and output paths in `src/data/documents.json`.
 
 The GitHub Actions [deployment workflow](.github/workflows/deploy.yml) installs the pinned dependencies, runs the complete check suite and deploys only `dist/` to GitHub Pages. The project base path is `/university-health-search-demo/`. Operational planning and local QA evidence are preserved outside the public Git file set.
 
