@@ -8,7 +8,7 @@
     "build:pdfs": "python3 scripts/build-pdfs.py",
     "build": "npm run build:pdfs && astro build",
     "preview": "astro preview --host 127.0.0.1",
-    "test": "node --test scripts/content.test.mjs && python3 scripts/check-build.test.py && python3 scripts/check-pdfs.test.py",
+    "test": "node --test scripts/content.test.mjs scripts/search-state.test.mjs && python3 scripts/check-build.test.py && python3 scripts/check-pdfs.test.py",
     "check": "npm test && npm run build && python3 scripts/check-build.py && python3 scripts/check-pdfs.py"
   },
   "dependencies": {

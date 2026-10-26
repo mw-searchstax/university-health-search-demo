@@ -1,4 +1,5 @@
 import { Searchstax } from '@searchstax-inc/searchstudio-ux-js';
+import { pageIsOutOfRange, readSearch, responseMatchesSearch, searchUrl } from './search-state.mjs';
 import '../../node_modules/@searchstax-inc/searchstudio-ux-js/dist/styles/mainTheme.css';
 
 const status = document.querySelector<HTMLElement>('#search-status')!;
@@ -10,20 +11,43 @@ if (!searchURL || !searchAuth) {
 } else {
   const search = new Searchstax();
   let completed = false;
+  let started = false;
+  let initializing = true;
+  let correctingPage = false;
+  let focusResults = false;
   search.initialize({
     language: 'en', searchURL, searchAuth, authType: 'token',
     suggesterURL: '', trackApiKey: '', router: { enabled: false },
     hooks: { beforeSearch: (request) => {
-      const url = new URL(window.location.href);
       const query = request.query;
-      if (query && query !== '*') url.searchParams.set('q', query);
-      else url.searchParams.delete('q');
-      if (request.page > 1) url.searchParams.set('page', String(request.page));
-      else url.searchParams.delete('page');
-      window.history.replaceState(null, '', url);
+      const url = searchUrl(window.location.href, query, request.page);
+      const previous = search.dataLayer.searchObject;
+      if (!initializing && !correctingPage && previous.query === query && previous.page !== request.page) {
+        focusResults = true;
+      }
+      if (url.href !== window.location.href) {
+        if (initializing || correctingPage) window.history.replaceState(null, '', url);
+        else window.history.pushState(null, '', url);
+      }
       return request;
-    }, afterSearch: (results) => {
+    }, afterSearch: (results, response) => {
       completed = true;
+      const current = search.dataLayer.searchObject;
+      const total = response?.response?.numFound;
+      const matches = responseMatchesSearch(current.query, current.page,
+        response?.responseHeader.params.q, response?.response?.start, 10);
+      if (total !== undefined && matches && pageIsOutOfRange(current.page, total, 10)) {
+        queueMicrotask(() => {
+          const latest = search.dataLayer.searchObject;
+          if (latest.query !== current.query || latest.page !== current.page) return;
+          correctingPage = true;
+          search.dataLayer.setSearchObject({ ...current, page: 1 });
+          correctingPage = false;
+        });
+      } else if (focusResults) {
+        focusResults = false;
+        setTimeout(() => document.querySelector<HTMLElement>('#searchstax-results-container a')?.focus(), 0);
+      }
       return results.map((result) => ({
         ...result,
         title: result.title?.replace(/\s*\|\s*Alder Coast University Health$/, '') ?? result.title,
@@ -75,26 +99,27 @@ if (!searchURL || !searchAuth) {
   }, true);
   search.dataLayer.$loadingChange.subscribe((loading: boolean) => {
     if (loading) {
+      started = true;
       completed = false;
       results.hidden = true;
       pagination.hidden = true;
       status.textContent = 'Searching…';
-    } else {
+    } else if (started) {
       // The kit signals loading complete before calling afterSearch.
       setTimeout(() => {
         if (!search.dataLayer.loading) {
           results.hidden = !completed;
           pagination.hidden = !completed;
+          if (!completed) focusResults = false;
           status.textContent = completed ? '' : 'Search is currently unavailable. Please try again.';
         }
       }, 0);
     }
   });
-  const params = new URLSearchParams(window.location.search);
-  const query = params.get('q')?.trim();
-  const page = Number(params.get('page'));
+  const { query, page } = readSearch(window.location.href);
   if (query) search.dataLayer.setSearchObject({
-    ...search.dataLayer.searchObject, query,
-    page: Number.isSafeInteger(page) && page > 0 ? page : 1,
+    ...search.dataLayer.searchObject, query, page,
   });
+  initializing = false;
+  window.addEventListener('popstate', () => window.location.reload());
 }
