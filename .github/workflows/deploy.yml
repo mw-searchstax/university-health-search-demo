@@ -34,7 +34,12 @@ jobs:
           npm ci
           python -m pip install -r requirements-pdf.txt
       - name: Test, build and validate corpus
-        run: npm run check
+        env:
+          PUBLIC_SEARCHSTAX_SEARCH_URL: ${{ secrets.SEARCHSTAX_SEARCH_URL }}
+          PUBLIC_SEARCHSTAX_READ_ONLY_TOKEN: ${{ secrets.SEARCHSTAX_READ_ONLY_TOKEN }}
+        run: |
+          test -n "$PUBLIC_SEARCHSTAX_SEARCH_URL" && test -n "$PUBLIC_SEARCHSTAX_READ_ONLY_TOKEN"
+          npm run check
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload validated site

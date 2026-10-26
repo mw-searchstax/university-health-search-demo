@@ -14,9 +14,42 @@ class BuildCheckerTests(unittest.TestCase):
     def test_manifest_freezes_86_routes_and_six_documents(self):
         self.assertEqual(len(checks["_manifest"]["html"]), 86)
         self.assertEqual(len(checks["ROUTES"]), 96)
+        self.assertEqual(checks["SEARCH_ROUTE"], "/search/")
+        self.assertNotIn(checks["SEARCH_ROUTE"], checks["ROUTES"])
         self.assertEqual(len(checks["PDFS"]), 6)
         self.assertEqual(checks["ROUTES"]["/"], "index.html")
         checks["validate_frozen_manifest"]()
+
+    def test_site_search_requires_get_action_query_name_and_accessible_label(self):
+        parser = checks["PageParser"]()
+        parser.feed('<form role="search" action="/university-health-search-demo/search/" method="get"><label>Search<input type="search" name="q"></label><button>Search</button></form>')
+        checks["check_site_search"](parser, "page.html")
+
+        cases = [
+            ('<form action="/university-health-search-demo/search/" method="post"><input type="search" name="q" aria-label="Search"></form>', "GET"),
+            ('<form action="/wrong/" method="get"><input type="search" name="q" aria-label="Search"></form>', "GET to /search/"),
+            ('<form action="/university-health-search-demo/search/" method="get"><input type="search" name="query" aria-label="Search"></form>', "name=q"),
+            ('<form action="/university-health-search-demo/search/" method="get"><input type="search" name="q"></form>', "accessible label"),
+        ]
+        for markup, message in cases:
+            with self.subTest(message=message):
+                bad = checks["PageParser"]()
+                bad.feed(markup)
+                with self.assertRaisesRegex(checks["CheckFailure"], message):
+                    checks["check_site_search"](bad, "page.html")
+
+    def test_search_utility_route_has_shared_shell_search_heading_and_notice(self):
+        html = f'''<html lang="en"><head><title>Search | Alder Coast</title>
+        <meta name="description" content="Search the fictional site."><meta name="viewport" content="width=device-width">
+        <link rel="canonical" href="{checks["SITE"]}{checks["BASE"]}search/"></head><body>
+        <form action="{checks["BASE"]}search/" method="get"><label>Search<input type="search" name="q"></label></form>
+        <main><h1>Search</h1><p>{checks["NOTICE"]}</p><div id="results-widget"></div></main><script src="/search.js"></script></body></html>'''
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "search/index.html"
+            path.parent.mkdir()
+            path.write_text(html)
+            page = checks["inspect_page"](Path(directory), checks["SEARCH_ROUTE"], Path("search/index.html"))
+            self.assertEqual(page["route"], "/search/")
 
     def test_script_projection_rejects_missing_addition_and_date_drift(self):
         globals_ = checks["validate_frozen_manifest"].__globals__

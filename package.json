@@ -12,6 +12,7 @@
     "check": "npm test && npm run build && python3 scripts/check-build.py && python3 scripts/check-pdfs.py"
   },
   "dependencies": {
+    "@searchstax-inc/searchstudio-ux-js": "^4.2.63",
     "astro": "7.4.2"
   },
   "engines": {

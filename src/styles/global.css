@@ -34,6 +34,126 @@ a:focus-visible {
 button,input {
   font:inherit
 }
+.header-search {
+  display:flex;
+  min-width:0
+}
+.header-search input {
+  width:10rem;
+  min-width:0;
+  border:1px solid var(--muted);
+  padding:.65rem
+}
+.header-search button {
+  border:1px solid var(--teal);
+  background:var(--teal);
+  color:white;
+  padding:.65rem .8rem;
+  cursor:pointer
+}
+.header-search :focus-visible, .search-page :focus-visible {
+  outline:3px solid #a96c18;
+  outline-offset:3px
+}
+.search-page {
+  min-height:24rem;
+  max-width:880px
+}
+.search-route .header-search {
+  display:none
+}
+.search-page h1 {
+  font-size:clamp(2.5rem,4vw,3.6rem);
+  margin-bottom:16px
+}
+.search-intro {
+  color:var(--muted);
+  margin-bottom:30px
+}
+.search-field-label {
+  display:block;
+  font-size:.9rem;
+  font-weight:650;
+  margin-bottom:8px
+}
+.demo-search-input {
+  display:flex;
+  width:100%
+}
+.demo-search-input input {
+  flex:1;
+  min-width:0;
+  border:1px solid var(--muted);
+  border-right:0;
+  border-radius:0;
+  background:var(--paper);
+  padding:12px 14px
+}
+.demo-search-input button.searchstax-search-icon,
+.demo-search-input button.searchstax-spinner-icon {
+  display:block;
+  width:auto;
+  max-width:none;
+  height:auto;
+  margin:0;
+  border:1px solid var(--teal);
+  border-radius:0;
+  background:var(--teal);
+  color:white;
+  padding:12px 22px;
+  animation:none;
+  cursor:pointer
+}
+.demo-search-input button:hover, .header-search button:hover {
+  background:var(--teal-deep)
+}
+#search-status:not(:empty) {
+  color:var(--muted);
+  margin:20px 0 0
+}
+.demo-pagination {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+  padding-top:24px
+}
+.demo-pagination span {
+  color:var(--muted);
+  margin-right:auto
+}
+.demo-pagination button {
+  border:1px solid var(--teal);
+  background:transparent;
+  color:var(--teal);
+  padding:10px 16px;
+  cursor:pointer
+}
+.demo-pagination button:hover {
+  background:var(--cream)
+}
+.demo-search-result {
+  border-bottom:1px solid var(--line);
+  padding:1.5rem 0
+}
+.demo-search-result h2 {
+  font-size:1.25rem;
+  margin-bottom:.5rem
+}
+.demo-search-result p {
+  color:var(--muted);
+  margin-bottom:0
+}
+.demo-empty-results {
+  padding-top:30px
+}
+.demo-empty-results h2 {
+  font-size:1.25rem;
+  margin-bottom:8px
+}
+.demo-empty-results p {
+  color:var(--muted)
+}
 p {
   line-height:1.7
 }
@@ -521,11 +641,22 @@ svg {
   }
 }
 @media(max-width:900px) {
+  .header-inner {
+    flex-wrap:wrap;
+    padding-block:20px
+  }
   .container {
     width:calc(100% - 48px)
   }
   .site-header nav {
     gap:18px
+  }
+  .header-search {
+    width:100%;
+    padding-bottom:20px
+  }
+  .header-search input {
+    flex:1
   }
   .hero-grid {
     gap:32px;

@@ -1,0 +1,25 @@
+---
+import site from '../data/site.json';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { pageSchema } from '../lib/content';
+
+const page = {
+  ...pageSchema.parse(site.home),
+  slug: 'search',
+  title: 'Search',
+  summary: 'Search the fictional Alder Coast University Health website.',
+};
+---
+<SiteLayout page={page} noindex>
+  <section class="section container search-page">
+    <p class="eyebrow">Explore Alder Coast</p>
+    <h1>Search</h1>
+    <p class="search-intro">Find information across our care, education, research and community pages.</p>
+    <div id="searchstax-input-container"></div>
+    <p id="search-status" role="status" aria-live="polite">Enter a search term to get started.</p>
+    <div id="searchstax-results-container"></div>
+    <div id="searchstax-pagination-container"></div>
+    <noscript>Search requires JavaScript. Please enable it to search this website.</noscript>
+  </section>
+  <script src="../scripts/search.ts"></script>
+</SiteLayout>

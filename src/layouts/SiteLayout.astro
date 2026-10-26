@@ -7,8 +7,9 @@ import '../styles/global.css';
 interface Props {
   page: PageData;
   locationNames?: string[];
+  noindex?: boolean;
 }
-const { page, locationNames = [] } = Astro.props;
+const { page, locationNames = [], noindex = false } = Astro.props;
 const canonical = new URL(pageHref(page.slug), Astro.site);
 const navigation = [
   { label: 'Explore care', slug: 'care' },
@@ -23,6 +24,7 @@ const navigation = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{page.title} | {site.name}</title>
     <meta name="description" content={page.summary} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <meta name="demo-content-type" content={page.content_type} />
     {page.audience.map((value) => <meta name="demo-audience" content={value} />)}
@@ -34,7 +36,7 @@ const navigation = [
     <meta name="demo-updated-date" content={`${page.updated_date}T00:00:00Z`} />
     {page.keywords.length > 0 && <meta name="keywords" content={page.keywords.join(', ')} />}
   </head>
-  <body>
+  <body class={page.slug === 'search' ? 'search-route' : undefined}>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="demo-notice"><div class="container"><span class="notice-dot" aria-hidden="true"></span>{site.notice}</div></div>
     <header class="site-header">
@@ -48,6 +50,10 @@ const navigation = [
         <nav aria-label="Main navigation">
           {navigation.map(({ label, slug }) => <a href={pageHref(slug)} aria-current={page.slug === slug ? 'page' : undefined}>{label}</a>)}
         </nav>
+        <form class="header-search" role="search" action={pageHref('search')} method="get">
+          <input id="header-search-input" type="search" name="q" placeholder="Search" aria-label="Search the website" required />
+          <button type="submit">Search</button>
+        </form>
       </div>
     </header>
     <main id="main-content" tabindex="-1"><slot /></main>

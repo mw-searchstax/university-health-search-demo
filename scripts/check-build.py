@@ -24,6 +24,8 @@ _added_by_id = {row["id"]: row for row in _additions}
 ROUTES = {"/" + row["slug"].strip("/") + "/": row["slug"].strip("/") + "/index.html" for row in _manifest["html"] if row["slug"]}
 ROUTES.update({"/" + row["slug"].strip("/") + "/": row["slug"].strip("/") + "/index.html" for row in _additions})
 ROUTES["/"] = "index.html"
+SEARCH_ROUTE = "/search/"
+SEARCH_PATH = "search/index.html"
 PDFS = {row["url_path"]: row for row in _manifest["pdfs"]}
 HTML_BY_ID = {row["id"]: row for row in _manifest["html"]}
 HTML_BY_ID.update(_added_by_id)
@@ -107,20 +109,26 @@ class PageParser(HTMLParser):
         self.has_viewport = False
         self.has_lang_en = False
         self.scripts = 0
-        self.forms = 0
-        self.search_controls = 0
+        self.forms = []
+        self.search_controls = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         classes = set((attrs.get("class") or "").split())
         in_body = any("search-body" in item["classes"] for item in self.stack)
         time_record = None
+        if tag == "form":
+            form = {"action": attrs.get("action", ""), "method": (attrs.get("method") or "get").lower(),
+                    "controls": []}
+            self.forms.append(form)
         if tag == "time":
             time_record = {"datetime": attrs.get("datetime", ""), "text": []}
             self.times.append(time_record)
         if tag not in VOID_TAGS:
             self.stack.append({"tag": tag, "classes": classes, "time": time_record,
                                "link": {"href": attrs.get("href"), "text": []} if tag == "a" else None})
+            if tag == "form":
+                self.forms[-1]["open"] = True
 
         if attrs.get("id"):
             self.ids.add(attrs["id"])
@@ -149,11 +157,15 @@ class PageParser(HTMLParser):
             self.search_body_invalid_container = True
         if tag == "script":
             self.scripts += 1
-        if tag == "form":
-            self.forms += 1
-        if tag == "search" or attrs.get("role") == "search" or (tag == "input" and attrs.get("type", "").lower() == "search"):
-            self.search_controls += 1
-        for attr in ("href", "src"):
+        if tag == "input" and (attrs.get("type") or "").lower() == "search":
+            control = {"name": attrs.get("name", ""), "label": attrs.get("aria-label", "").strip(),
+                       "wrapped_label": any(item["tag"] == "label" for item in self.stack)}
+            self.search_controls.append(control)
+            for item in reversed(self.forms):
+                if item.get("open"):
+                    item["controls"].append(control)
+                    break
+        for attr in ("href", "src", "action"):
             if attrs.get(attr) is not None:
                 self.refs.append((tag, attr, attrs[attr], "search-body" in classes or in_body))
 
@@ -162,6 +174,8 @@ class PageParser(HTMLParser):
             if self.stack[index]["tag"] == tag:
                 if tag == "a" and self.stack[index]["link"] is not None:
                     self.links.append(self.stack[index]["link"])
+                if tag == "form":
+                    self.forms[-1].pop("open", None)
                 del self.stack[index:]
                 break
         if tag == "title":
@@ -284,28 +298,26 @@ def inspect_page(root, route, relpath):
     parser.feed(path.read_text(encoding="utf-8"))
     parser.close()
 
-    require(parser.has_lang_en, path, "expected <html lang=\"en\">")
     titles = normalized_text(parser.title_text)
-    require(bool(titles), path, "missing non-empty <title>")
+    if route == SEARCH_ROUTE:
+        check_page_shell(parser, path, route)
+        require(normalized_text(parser.h1_text) == "Search", path, "search utility route must have the Search heading")
+        require(NOTICE in normalized_text(parser.text), path, f"missing exact visible notice: {NOTICE}")
+        require(parser.scripts == 1, path, "search utility must load its browser-side search script")
+        check_site_search(parser, path)
+        return {"path": path, "parser": parser, "route": route}
     row = next(row for row in HTML_BY_ID.values() if ("/" if not row["slug"] else "/" + row["slug"].strip("/") + "/") == route)
+    check_page_shell(parser, path, route)
     if row["id"] != "home":
         require(normalized_text(parser.h1_text) == row["title"], path, f"visible h1 must match source title {row['title']!r}")
         require(parser.meta.get("demo-content-type") == [row["content_type"]], path, f"demo-content-type must match source role {row['content_type']!r}")
     descriptions = parser.meta.get("description", [])
-    require(len(descriptions) == 1 and bool(descriptions[0]), path, "expected one non-empty meta description")
-    expected_canonical = SITE + BASE + route.lstrip("/")
-    canonicals = parser.meta.get("canonical", [])
-    require(canonicals == [expected_canonical], path, f"canonical must be {expected_canonical}")
-    require(parser.has_viewport, path, "missing non-empty viewport meta")
-    require(parser.h1_count == 1, path, f"expected exactly one h1, found {parser.h1_count}")
-    require(parser.main_count == 1, path, f"expected exactly one main, found {parser.main_count}")
     require(parser.search_body_count == 1, path, f"expected exactly one .search-body, found {parser.search_body_count}")
     require(parser.search_body_inside_main, path, ".search-body must be inside main")
     require(not parser.search_body_invalid_container, path, "facts, related content, navigation, or breadcrumbs found inside .search-body")
     require(not any(in_body and tag == "a" for tag, attr, value, in_body in parser.refs), path, "links inside .search-body must be moved outside it")
     require(not parser.scripts, path, "script element found; pages must render without browser-side scripts")
-    require(not parser.forms, path, "form found; the demo has no data-submission forms")
-    require(not parser.search_controls, path, "search UI found; the demo is content-only")
+    check_site_search(parser, path)
 
     for name in REQUIRED_META:
         values = parser.meta.get(name, [])
@@ -358,6 +370,28 @@ def inspect_page(root, route, relpath):
         check_script_lexical_controls(row["id"], titles, descriptions[0], body_text, path)
 
     return {"path": path, "parser": parser, "route": route}
+
+
+def check_page_shell(parser, path, route):
+    require(parser.has_lang_en, path, 'expected <html lang="en">')
+    require(bool(normalized_text(parser.title_text)), path, "missing non-empty <title>")
+    descriptions = parser.meta.get("description", [])
+    require(len(descriptions) == 1 and bool(descriptions[0]), path, "expected one non-empty meta description")
+    expected_canonical = SITE + BASE + route.lstrip("/")
+    require(parser.meta.get("canonical", []) == [expected_canonical], path, f"canonical must be {expected_canonical}")
+    require(parser.has_viewport, path, "missing non-empty viewport meta")
+    require(parser.h1_count == 1, path, f"expected exactly one h1, found {parser.h1_count}")
+    require(parser.main_count == 1, path, f"expected exactly one main, found {parser.main_count}")
+
+
+def check_site_search(parser, path):
+    require(len(parser.forms) == 1, path, "expected exactly one sitewide search form")
+    form = parser.forms[0]
+    require(form["method"] == "get" and form["action"] == BASE + "search/", path, "sitewide search form must GET to /search/")
+    require(len(parser.search_controls) == 1 and form["controls"] == parser.search_controls, path, "expected one search input inside the sitewide form")
+    control = parser.search_controls[0]
+    require(control["name"] == "q", path, "sitewide search input must use name=q")
+    require(bool(control["label"]) or control["wrapped_label"], path, "sitewide search input must have an accessible label")
 
 
 def check_remaining_scenario_controls(pages):
@@ -574,13 +608,14 @@ def main():
     check_source_collection()
     root = Path(sys.argv[1] if len(sys.argv) > 1 else "dist").resolve()
     require(root.is_dir(), root, "build output directory does not exist")
-    expected_paths = {Path(path) for path in ROUTES.values()}
+    all_routes = {**ROUTES, SEARCH_ROUTE: SEARCH_PATH}
+    expected_paths = {Path(path) for path in all_routes.values()}
     actual_paths = {p.relative_to(root) for p in root.rglob("*") if p.is_file() and p.suffix.lower() in {".html", ".htm"}}
-    require(len(ROUTES) == 96 and actual_paths == expected_paths, root, f"expected exactly the 96-record HTML union; missing={sorted(map(str, expected_paths - actual_paths))}, extra={sorted(map(str, actual_paths - expected_paths))}")
+    require(len(ROUTES) == 96 and actual_paths == expected_paths, root, f"expected exactly the 96-record HTML union plus /search/ utility route; missing={sorted(map(str, expected_paths - actual_paths))}, extra={sorted(map(str, actual_paths - expected_paths))}")
     actual_pdfs = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file() and p.suffix.lower() == ".pdf"}
     require(actual_pdfs == set(PDFS), root, f"expected exactly six intended PDFs; missing={sorted(set(PDFS) - actual_pdfs)}, extra={sorted(actual_pdfs - set(PDFS))}")
 
-    pages = {route: inspect_page(root, route, Path(relpath)) for route, relpath in ROUTES.items()}
+    pages = {route: inspect_page(root, route, Path(relpath)) for route, relpath in all_routes.items()}
     check_cardiology_comparison(pages)
     check_remaining_scenario_controls(pages)
     records = load_document_registry()
@@ -600,13 +635,13 @@ def main():
             require(SOURCE_SUMMARIES[row["id"]] in normalized_text(page["parser"].outside_body_text), page["path"], f"hub discovery card summary missing for {row['id']}")
     check_document_links(pages, records, root)
 
-    graph = {route: set() for route in ROUTES}
+    graph = {route: set() for route in all_routes}
     for route, page in pages.items():
         for tag, attr, value, in_body in page["parser"].refs:
-            if attr != "href":
+            if attr not in {"href", "action"}:
                 continue
             target, _ = resolve_local_target(root, route, value, page["path"], check_fragment=False)
-            if target is not None:
+            if target is not None and (attr == "href" or tag == "form"):
                 rel = target.relative_to(root)
                 target_route = route_for(rel)
                 if target_route in pages:
@@ -619,9 +654,9 @@ def main():
             if route not in reached:
                 reached.add(route)
                 queue.append(route)
-    require(reached == set(ROUTES), root, f"homepage ordinary-anchor graph reaches {len(reached)}/{len(ROUTES)} routes: {sorted(reached)}")
+    require(reached == set(all_routes), root, f"homepage link/form graph reaches {len(reached)}/{len(all_routes)} routes: {sorted(reached)}")
 
-    print("PASS: exactly 96 union HTML routes (95 collection sources plus home) and six original PDFs")
+    print("PASS: exactly 96 union content routes plus /search/ utility route and six original PDFs")
     print("PASS: language, title, description, canonical, viewport, heading, main, notice, and search-body checks")
     print("PASS: local links, assets, fragments, project base path, titled parent PDF links, and homepage discovery graph")
     print("PASS: original scenario controls, ten script-aligned additions, optional metadata, discovery summaries, and fixed dates")
