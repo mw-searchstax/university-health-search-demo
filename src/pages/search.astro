@@ -11,14 +11,35 @@ const page = {
 };
 ---
 <SiteLayout page={page} noindex>
-  <section class="section container search-page">
-    <p class="eyebrow">Explore Alder Coast</p>
-    <h1>Search</h1>
-    <p class="search-intro">Find information across our care, education, research and community pages.</p>
-    <div id="searchstax-input-container"></div>
+  <section class="container search-page" aria-labelledby="search-title">
+    <header class="search-heading">
+      <h1 id="search-title">Search the website</h1>
+      <p class="search-intro">Care, education, research and community — all in one place.</p>
+    </header>
+    <div class="search-panel">
+      <div id="searchstax-input-container"></div>
+    </div>
     <p id="search-status" role="status" aria-live="polite">Enter a search term to get started.</p>
-    <div id="searchstax-results-container"></div>
-    <div id="searchstax-pagination-container"></div>
+    <div class="search-workspace" id="search-workspace" hidden>
+      <aside class="search-sidebar" aria-label="Refine results">
+        <details id="search-refinements" open>
+          <summary>Refine results <span class="filter-selection-count" id="filter-selection-count"></span></summary>
+          <div class="search-refinement-body">
+            <div id="searchstax-facets-container"></div>
+            <p id="filter-empty" class="filter-empty" hidden>No content types available for this search.</p>
+          </div>
+        </details>
+      </aside>
+      <div class="search-results-column">
+        <div class="search-results-heading">
+          <h2 id="search-results-summary" tabindex="-1">Search results</h2>
+          <p id="search-results-context">Across all content</p>
+        </div>
+        <div id="selected-types" class="selected-types" aria-label="Selected content types" hidden></div>
+        <div id="searchstax-results-container"></div>
+        <div id="searchstax-pagination-container"></div>
+      </div>
+    </div>
     <noscript>Search requires JavaScript. Please enable it to search this website.</noscript>
   </section>
   <script src="../scripts/search.ts"></script>

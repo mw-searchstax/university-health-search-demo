@@ -43,7 +43,7 @@ class BuildCheckerTests(unittest.TestCase):
         <meta name="description" content="Search the fictional site."><meta name="viewport" content="width=device-width">
         <link rel="canonical" href="{checks["SITE"]}{checks["BASE"]}search/"></head><body>
         <form action="{checks["BASE"]}search/" method="get"><label>Search<input type="search" name="q"></label></form>
-        <main><h1>Search</h1><p>{checks["NOTICE"]}</p><div id="results-widget"></div></main><script src="/search.js"></script></body></html>'''
+        <main><h1>Search the website</h1><p>{checks["NOTICE"]}</p><div id="results-widget"></div></main><script src="/search.js"></script></body></html>'''
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "search/index.html"
             path.parent.mkdir()

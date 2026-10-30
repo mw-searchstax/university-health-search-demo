@@ -301,7 +301,7 @@ def inspect_page(root, route, relpath):
     titles = normalized_text(parser.title_text)
     if route == SEARCH_ROUTE:
         check_page_shell(parser, path, route)
-        require(normalized_text(parser.h1_text) == "Search", path, "search utility route must have the Search heading")
+        require(normalized_text(parser.h1_text) == "Search the website", path, "search utility route must have the Search the website heading")
         require(NOTICE in normalized_text(parser.text), path, f"missing exact visible notice: {NOTICE}")
         require(parser.scripts == 1, path, "search utility must load its browser-side search script")
         check_site_search(parser, path)
