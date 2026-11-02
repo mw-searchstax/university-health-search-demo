@@ -65,6 +65,7 @@ related_ids:
   - service-international-health
   - service-general-health-services
   - resource-flu-shot-appointments
+  - service-otolaryngology
 ---
 
 ## Find a department or a person

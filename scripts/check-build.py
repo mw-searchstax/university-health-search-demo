@@ -33,6 +33,7 @@ ADDED_IDS = {
     "service-international-health", "program-business-administration", "resource-flu-shot-appointments",
     "service-general-health-services", "program-nursing-foundations", "program-nursing-community-practice",
     "program-nursing-simulation", "news-flu-clinics-2024", "news-flu-clinics-2025", "news-flu-clinics-2026",
+    "service-otolaryngology",
 }
 ADDED_DATES = {
     "service-international-health": ("2026-03-16", "2026-10-22"),
@@ -45,6 +46,7 @@ ADDED_DATES = {
     "news-flu-clinics-2024": ("2024-09-15", "2024-09-15"),
     "news-flu-clinics-2025": ("2025-09-15", "2025-09-15"),
     "news-flu-clinics-2026": ("2026-09-15", "2026-09-15"),
+    "service-otolaryngology": ("2026-10-22", "2026-10-22"),
 }
 ADDED_SLUGS = {
     "service-international-health": "care/services/international-health",
@@ -57,9 +59,10 @@ ADDED_SLUGS = {
     "news-flu-clinics-2024": "news/flu-clinic-update-2024",
     "news-flu-clinics-2025": "news/flu-clinic-update-2025",
     "news-flu-clinics-2026": "news/flu-clinic-update-2026",
+    "service-otolaryngology": "care/services/otolaryngology",
 }
 HUB_ADDITIONS = {
-    "hub-care": ["service-international-health", "service-general-health-services", "resource-flu-shot-appointments"],
+    "hub-care": ["service-international-health", "service-general-health-services", "resource-flu-shot-appointments", "service-otolaryngology"],
     "hub-education": ["program-business-administration", "program-nursing-foundations", "program-nursing-community-practice", "program-nursing-simulation"],
     "hub-news": ["news-flu-clinics-2024", "news-flu-clinics-2025", "news-flu-clinics-2026"],
 }
@@ -223,15 +226,15 @@ def validate_frozen_manifest():
     require({row["url_path"] for row in documents} == APPROVED_PDF_PATHS, MANIFEST, "PDF manifest paths must match the six approved targets")
     html_ids = {row["id"] for row in rows}
     require(all(row["parent_id"] in html_ids for row in documents), MANIFEST, "every PDF parent must resolve to an HTML record")
-    require(set(_added_by_id) == ADDED_IDS and len(_additions) == 10, SCRIPT_FIXTURES, "script fixture projection must contain the exact ten approved addition IDs")
+    require(set(_added_by_id) == ADDED_IDS and len(_additions) == 11, SCRIPT_FIXTURES, "supplemental fixture projection must contain the exact eleven approved addition IDs")
     allowed = {"id", "slug", "content_type", "title", "source_file", "published_date", "updated_date", "audience", "related_ids", "service_line", "service_names", "open_for_enrollment"}
     require(all(set(row) <= allowed and {"id", "slug", "content_type", "title", "source_file", "published_date", "updated_date", "audience", "related_ids"} <= set(row) for row in _additions), SCRIPT_FIXTURES, "projection contains an undeclared field or is missing a required public-safe field")
     require(not ({row["id"] for row in _manifest["html"]} & set(_added_by_id)), SCRIPT_FIXTURES, "added fixture IDs overlap the frozen 86-record manifest")
-    require(len({row["slug"] for row in _additions}) == 10 and len({row["source_file"] for row in _additions}) == 10, SCRIPT_FIXTURES, "added routes and source files must be unique")
+    require(len({row["slug"] for row in _additions}) == 11 and len({row["source_file"] for row in _additions}) == 11, SCRIPT_FIXTURES, "supplemental routes and source files must be unique")
     require(all(row["content_type"] in {"service", "program", "resource", "news"} for row in _additions), SCRIPT_FIXTURES, "additions must use an existing approved content type")
     require(all(row["content_type"] == row["id"].split("-", 1)[0] for row in _additions), SCRIPT_FIXTURES, "each added fixture content_type must match its frozen ID prefix")
-    require(all((row["published_date"], row["updated_date"]) == ADDED_DATES[row["id"]] for row in _additions), SCRIPT_FIXTURES, "script fixture dates must match the fixed D-039 dates")
-    require(all(row["slug"] == ADDED_SLUGS[row["id"]] for row in _additions), SCRIPT_FIXTURES, "script fixture routes must match the fixed D-039 routes")
+    require(all((row["published_date"], row["updated_date"]) == ADDED_DATES[row["id"]] for row in _additions), SCRIPT_FIXTURES, "supplemental fixture dates must match their fixed approved dates")
+    require(all(row["slug"] == ADDED_SLUGS[row["id"]] for row in _additions), SCRIPT_FIXTURES, "supplemental fixture routes must match their fixed approved routes")
     expected_optional = {
         "service-international-health": {"service_names": ["Travel Vaccinations"]},
         "program-nursing-foundations": {"open_for_enrollment": True},
@@ -240,7 +243,7 @@ def validate_frozen_manifest():
     }
     for row in _additions:
         require({key: row[key] for key in ("service_names", "open_for_enrollment") if key in row} == expected_optional.get(row["id"], {}), SCRIPT_FIXTURES, f"unexpected optional fields or values for {row['id']}")
-    require(len({row["id"] for row in _additions}) == 10, SCRIPT_FIXTURES, "added IDs must be unique")
+    require(len({row["id"] for row in _additions}) == 11, SCRIPT_FIXTURES, "supplemental fixture IDs must be unique")
 
 
 def normalized_text(parts):
@@ -263,6 +266,12 @@ def check_script_lexical_controls(record_id, title, description, body, path):
     elif record_id == "service-general-health-services":
         require(not re.search(r"\bflu\b|\bshots\b", title + " " + description, re.I), path, "general service title/summary must omit flu and shots")
         require(re.search(r"\bflu\s+shots\b", body, re.I), path, "general service body must contain flu shots")
+    elif record_id == "service-otolaryngology":
+        for field, value in (("title", title), ("description", description), ("body", body)):
+            require(re.search(r"\botolaryngology\b", value, re.I), path, f"Otolaryngology {field} must include the full specialty name")
+            require(not re.search(r"\bENT\b", value, re.I), path, f"Otolaryngology {field} must exclude the standalone ENT abbreviation")
+        require(not re.search(r"\b(?:travel|vaccinations|mba|flu|shots|nursing|courses)\b", indexed, re.I), path,
+                "Otolaryngology searchable fields must exclude protected prior-scenario query terms")
 
 
 def check_optional_metadata(parser, row, outside_text, path):
@@ -499,7 +508,7 @@ def check_source_collection(project_root=None):
     records = [row for row in _manifest["html"] if row["id"] != "home"]
     expected = {row["source_file"] for row in records} | {row["source_file"] for row in _additions}
     actual = {path.relative_to(project_root).as_posix() for path in page_dir.glob("*.md")}
-    require(len(actual) == 95 and actual == expected, page_dir, f"expected exactly 95 collection sources; missing={sorted(expected - actual)}, extra={sorted(actual - expected)}")
+    require(len(actual) == 96 and actual == expected, page_dir, f"expected exactly 96 collection sources; missing={sorted(expected - actual)}, extra={sorted(actual - expected)}")
     for row in records + _additions:
         path = project_root / row["source_file"]
         source = path.read_text(encoding="utf-8")
@@ -528,7 +537,7 @@ def check_source_collection(project_root=None):
             require(not re.search(r"^(?:service_names|open_for_enrollment):\s*", frontmatter, re.M), path, "all original source records must omit D-039 optional fields")
         relation_ids = parse_related_ids(frontmatter)
         known_ids = {item["id"] for item in _manifest["html"]} | ADDED_IDS
-        require(set(relation_ids) <= known_ids and len(relation_ids) == len(set(relation_ids)), path, "related_ids must be unique references in the exact 96-record union")
+        require(set(relation_ids) <= known_ids and len(relation_ids) == len(set(relation_ids)), path, "related_ids must be unique references in the exact 97-record content union")
         if row["id"] in ADDED_IDS:
             require(relation_ids == row["related_ids"], path, "related_ids must match the prepared addition edges")
         elif row.get("related_ids") is not None:
@@ -611,7 +620,7 @@ def main():
     all_routes = {**ROUTES, SEARCH_ROUTE: SEARCH_PATH}
     expected_paths = {Path(path) for path in all_routes.values()}
     actual_paths = {p.relative_to(root) for p in root.rglob("*") if p.is_file() and p.suffix.lower() in {".html", ".htm"}}
-    require(len(ROUTES) == 96 and actual_paths == expected_paths, root, f"expected exactly the 96-record HTML union plus /search/ utility route; missing={sorted(map(str, expected_paths - actual_paths))}, extra={sorted(map(str, actual_paths - expected_paths))}")
+    require(len(ROUTES) == 97 and actual_paths == expected_paths, root, f"expected exactly the 97-record HTML union plus /search/ utility route; missing={sorted(map(str, expected_paths - actual_paths))}, extra={sorted(map(str, actual_paths - expected_paths))}")
     actual_pdfs = {p.relative_to(root).as_posix() for p in root.rglob("*") if p.is_file() and p.suffix.lower() == ".pdf"}
     require(actual_pdfs == set(PDFS), root, f"expected exactly six intended PDFs; missing={sorted(set(PDFS) - actual_pdfs)}, extra={sorted(actual_pdfs - set(PDFS))}")
 
@@ -656,10 +665,10 @@ def main():
                 queue.append(route)
     require(reached == set(all_routes), root, f"homepage link/form graph reaches {len(reached)}/{len(all_routes)} routes: {sorted(reached)}")
 
-    print("PASS: exactly 96 union content routes plus /search/ utility route and six original PDFs")
+    print("PASS: exactly 97 union content routes plus /search/ utility route and six original PDFs")
     print("PASS: language, title, description, canonical, viewport, heading, main, notice, and search-body checks")
     print("PASS: local links, assets, fragments, project base path, titled parent PDF links, and homepage discovery graph")
-    print("PASS: original scenario controls, ten script-aligned additions, optional metadata, discovery summaries, and fixed dates")
+    print("PASS: original scenario controls, eleven supplemental additions, optional metadata, discovery summaries, and fixed dates")
     print("Metadata candidate names were found in generated HTML only; SearchStax extraction is unverified.")
 
 

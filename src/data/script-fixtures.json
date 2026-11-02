@@ -185,5 +185,23 @@
       "resource-flu-shot-appointments",
       "service-general-health-services"
     ]
+  },
+  {
+    "id": "service-otolaryngology",
+    "slug": "care/services/otolaryngology",
+    "content_type": "service",
+    "title": "Otolaryngology",
+    "source_file": "src/content/pages/service-otolaryngology.md",
+    "published_date": "2026-10-22",
+    "updated_date": "2026-10-22",
+    "audience": [
+      "patient",
+      "community",
+      "student"
+    ],
+    "related_ids": [
+      "hub-care"
+    ],
+    "service_line": "Ear, Nose and Throat"
   }
 ]

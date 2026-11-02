@@ -11,9 +11,10 @@ checks = runpy.run_path(str(Path(__file__).with_name("check-build.py")))
 
 
 class BuildCheckerTests(unittest.TestCase):
-    def test_manifest_freezes_86_routes_and_six_documents(self):
+    def test_manifest_and_supplemental_inventory_have_97_routes_and_six_documents(self):
         self.assertEqual(len(checks["_manifest"]["html"]), 86)
-        self.assertEqual(len(checks["ROUTES"]), 96)
+        self.assertEqual(len(checks["ROUTES"]), 97)
+        self.assertEqual(len(checks["_additions"]), 11)
         self.assertEqual(checks["SEARCH_ROUTE"], "/search/")
         self.assertNotIn(checks["SEARCH_ROUTE"], checks["ROUTES"])
         self.assertEqual(len(checks["PDFS"]), 6)
@@ -57,14 +58,14 @@ class BuildCheckerTests(unittest.TestCase):
         original_dates = dict(globals_["ADDED_DATES"])
         try:
             removed = additions.pop()
-            with self.assertRaisesRegex(checks["CheckFailure"], "exact ten approved addition IDs"):
+            with self.assertRaisesRegex(checks["CheckFailure"], "exact eleven approved addition IDs"):
                 checks["validate_frozen_manifest"]()
             additions.append(removed)
             globals_["ADDED_DATES"]["news-flu-clinics-2025"] = ("2025-09-16", "2025-09-15")
-            with self.assertRaisesRegex(checks["CheckFailure"], "fixed D-039 dates"):
+            with self.assertRaisesRegex(checks["CheckFailure"], "fixed approved dates"):
                 checks["validate_frozen_manifest"]()
         finally:
-            if len(additions) < 10:
+            if len(additions) < 11:
                 additions.append(removed)
             globals_["ADDED_DATES"].clear()
             globals_["ADDED_DATES"].update(original_dates)
@@ -117,7 +118,40 @@ class BuildCheckerTests(unittest.TestCase):
             with self.subTest(leaking_word=leaking_word), self.assertRaisesRegex(checks["CheckFailure"], "exclude travel and vaccinations"):
                 guard("service-international-health", "International Health", "A neutral summary", f"Reference notes include {leaking_word}.", "international-health.html")
 
-    def test_manifest_source_inventory_matches_85_frontmatter_records(self):
+    def test_otolaryngology_requires_full_name_and_excludes_ent_per_searchable_field(self):
+        guard = checks["check_script_lexical_controls"]
+        valid = {
+            "title": "Otolaryngology Department",
+            "description": "Otolaryngology covers an entire subject area.",
+            "body": "Otolaryngology includes departmental topics for fictional learning.",
+        }
+        guard("service-otolaryngology", valid["title"], valid["description"], valid["body"], "otolaryngology.html")
+
+        for field in ("title", "description", "body"):
+            with self.subTest(ent_field=field):
+                contaminated = dict(valid)
+                contaminated[field] = f"{contaminated[field]} ENT"
+                with self.assertRaisesRegex(checks["CheckFailure"], f"{field} must exclude the standalone ENT"):
+                    guard("service-otolaryngology", contaminated["title"], contaminated["description"], contaminated["body"], "otolaryngology.html")
+
+            with self.subTest(missing_full_name_field=field):
+                incomplete = dict(valid)
+                incomplete[field] = "Departmental overview for the fictional collection."
+                with self.assertRaisesRegex(checks["CheckFailure"], f"{field} must include the full specialty name"):
+                    guard("service-otolaryngology", incomplete["title"], incomplete["description"], incomplete["body"], "otolaryngology.html")
+
+    def test_otolaryngology_excludes_protected_terms_but_allows_ent_substrings(self):
+        guard = checks["check_script_lexical_controls"]
+        valid = ("Otolaryngology Department", "Otolaryngology covers an entire subject area.",
+                 "Otolaryngology includes departmental topics for fictional learning.")
+        guard("service-otolaryngology", *valid, "otolaryngology.html")
+
+        for leaking_word in ("travel", "vaccinations", "mba", "flu", "shots", "nursing", "courses"):
+            with self.subTest(leaking_word=leaking_word), self.assertRaisesRegex(checks["CheckFailure"], "protected prior-scenario query terms"):
+                body = f"Otolaryngology is discussed alongside {leaking_word} in this fictional note."
+                guard("service-otolaryngology", valid[0], valid[1], body, "otolaryngology.html")
+
+    def test_manifest_source_inventory_matches_96_frontmatter_records(self):
         checks["check_source_collection"]()
 
     @staticmethod
