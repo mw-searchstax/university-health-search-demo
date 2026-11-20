@@ -13,7 +13,7 @@ related_ids:
 
 ## Simulation teaching design
 
-The Nursing Learning Lab at fictional Alder Coast University examines how classroom simulation materials are organized and discussed. Its collection includes blank observation sheets, fictional chart examples and notes about the design of mannequin-based exercises. The lab's interest is in the teaching materials and the sequence of classroom activities, not in evaluating people or conducting clinical experiments.
+The Nursing Learning Lab at fictional Central County University examines how classroom simulation materials are organized and discussed. Its collection includes blank observation sheets, fictional chart examples and notes about the design of mannequin-based exercises. The lab's interest is in the teaching materials and the sequence of classroom activities, not in evaluating people or conducting clinical experiments.
 
 ## Observation notes
 

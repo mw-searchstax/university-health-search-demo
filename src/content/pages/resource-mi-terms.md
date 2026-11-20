@@ -19,6 +19,6 @@ Myocardial infarction refers to damage and death in part of the heart muscle aft
 
 Cardiac arrest means the heart suddenly and unexpectedly stops beating. It is a different event; the two terms aren't interchangeable.
 
-In Alder Coast's fictional Cardiology glossary, this entry sits alongside terms for heart structures and tests. It explains vocabulary, without symptom checklists, diagnostic instructions or treatment recommendations.
+In Central County's fictional Cardiology glossary, this entry sits alongside terms for heart structures and tests. It explains vocabulary, without symptom checklists, diagnostic instructions or treatment recommendations.
 
 Terminology reference: National Heart, Lung, and Blood Institute, National Institutes of Health.

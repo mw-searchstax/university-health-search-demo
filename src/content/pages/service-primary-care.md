@@ -2,7 +2,7 @@
 slug: "care/services/primary-care"
 content_type: "service"
 title: "Primary Care"
-summary: "Primary Care connects broad classroom topics with fictional continuity cases and teaching materials."
+summary: "Primary Care uses three kinds of classroom material: case notes, referral examples, and public-health handouts."
 audience: ["student", "faculty"]
 published_date: "2026-03-16"
 updated_date: "2026-09-28"
@@ -10,10 +10,4 @@ related_ids: ["location-teaching-health-center", "provider-niko-maren", "provide
 service_line: "Primary Care"
 ---
 
-## Broad academic scope
-
-Primary Care is presented as a broad academic area at fictional Alder Coast University Health. Its teaching collection uses continuity case cards to discuss how a sequence of invented observations can be organized over time. The materials are designed for classroom comparison and keep recorded details distinct from interpretation.
-
-## Classroom links
-
-The collection spans the Teaching Health Center and the North Campus academic annex. Related profiles describe the case cards, mock referral narratives and public-health leaflet exercises maintained by the fictional unit. Together, these pages show how a broad department can connect several kinds of learning material without representing real services. This overview concerns curriculum and document organization; it does not tell readers how to seek care or assess a health concern.
+Niko Maren’s case cards show how to keep a sequence of observations in order. Rhea Solen’s sample referrals show how information passes between documents. For a handout example, Anika Pellan’s profile describes the leaflet collection at the Community Health Pavilion.

@@ -13,7 +13,7 @@ related_ids:
 
 ## Reading the campus map
 
-Transit Access is a guide to the symbols used on fictional Alder Coast campus maps. A solid line marks a pedestrian path, a shaded band represents a covered link between buildings, and a separate icon identifies a transit concept in the map legend. The symbols describe categories in the demonstration map; they do not indicate a real route or service.
+Transit Access is a guide to the symbols used on fictional Central County campus maps. A solid line marks a pedestrian path, a shaded band represents a covered link between buildings, and a separate icon identifies a transit concept in the map legend. The symbols describe categories in the demonstration map; they do not indicate a real route or service.
 
 ## Access information as a collection
 

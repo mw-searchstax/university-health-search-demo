@@ -11,18 +11,14 @@ interface Props {
 }
 const { page, locationNames = [], noindex = false } = Astro.props;
 const canonical = new URL(pageHref(page.slug), Astro.site);
-const navigation = [
-  { label: 'Explore care', slug: 'care' },
-  { label: 'Nursing education', slug: 'education/nursing' },
-  { label: 'Community', slug: 'community/community-screening' },
-];
+
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{page.title} | {site.name}</title>
+    <title>{page.slug ? `${page.title} | ${site.name}` : site.name}</title>
     <meta name="description" content={page.summary} />
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
@@ -42,28 +38,28 @@ const navigation = [
     <header class="site-header">
       <div class="container header-inner">
         <a class="wordmark" href={pageHref()} aria-label={`${site.name} home`}>
-          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path d="M7 31C17 17 25 38 41 19M7 39C17 25 25 46 41 27M7 23C17 9 25 30 41 11" stroke="currentColor" stroke-width="3" />
-          </svg>
-          <span><span class="wordmark-name">Alder Coast</span><span class="wordmark-subtitle">University Health</span></span>
+          <span class="wordmark-name">{site.wordmark}</span>
+          <span class="wordmark-subtitle">University Health</span>
         </a>
         <nav aria-label="Main navigation">
-          {navigation.map(({ label, slug }) => <a href={pageHref(slug)} aria-current={page.slug === slug ? 'page' : undefined}>{label}</a>)}
+          {site.navigation.map(({ label, slug }) => <a href={pageHref(slug)} aria-current={page.slug === slug ? 'page' : undefined}>{label}</a>)}
         </nav>
-        <form class="header-search" role="search" action={pageHref('search')} method="get">
+        {page.slug !== '' && <form class="header-search" role="search" action={pageHref('search')} method="get">
           <input id="header-search-input" type="search" name="q" placeholder="Search" aria-label="Search the website" required />
           <button type="submit">Search</button>
-        </form>
+        </form>}
       </div>
     </header>
     <main id="main-content" tabindex="-1"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div><p class="footer-name">{site.name}</p><p>A fictional academic health system<br />and part of {site.university}.</p></div>
-        <div><p class="footer-label">A shared public purpose</p><p>{site.location}</p><a href={pageHref('care')}>Explore the care directory <span aria-hidden="true">→</span></a></div>
-        <div><p class="footer-label">About this website</p><p>Sample institutional content for search training. No clinical services, appointments or personal information are available here.</p></div>
+        <div>
+          <p class="footer-name">{site.name}</p>
+          <p>{site.location}</p>
+        </div>
+        <div><a href={pageHref('about')}>About the university</a></div>
+        <div><p>Fictional website for SearchStax Site Search training.</p></div>
       </div>
-      <div class="container footer-bottom"><span>Fictional demonstration · 2026</span><span>Care · Education · Public service</span></div>
     </footer>
   </body>
 </html>

@@ -1,13 +1,13 @@
 {
-  "name": "Alder Coast University Health",
-  "university": "Alder Coast University",
-  "location": "Alder Coast, Oregon · Fictional location",
+  "name": "Central County University Health",
+  "university": "Central County University",
+  "location": "Central County, Oregon",
   "notice": "Fictional demonstration website. Not a real healthcare provider.",
   "home": {
     "slug": "",
     "content_type": "hub",
-    "title": "Care, learning and community.",
-    "summary": "Explore the people, places and ideas of Alder Coast University Health — a fictional public university health system on the Oregon coast.",
+    "title": "Search the university",
+    "summary": "Find a department, course, or campus building.",
     "audience": [
       "patient",
       "student",
@@ -27,5 +27,23 @@
       "hub-community",
       "hub-news"
     ]
+  },
+  "wordmark": "Central County",
+  "navigation": [
+    {
+      "slug": "care",
+      "label": "Departments"
+    },
+    {
+      "slug": "education",
+      "label": "Education"
+    },
+    {
+      "slug": "locations",
+      "label": "Locations"
+    }
+  ],
+  "pageLabels": {
+    "care/resources/cardiology-visit-overview": "Heart Center Gallery Guide"
   }
 }

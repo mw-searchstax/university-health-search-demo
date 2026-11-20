@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+const { name: SITE_NAME } = JSON.parse(readFileSync(join(ROOT, 'src/data/site.json'), 'utf8'));
 const PUBLIC_BASE = 'https://mw-searchstax.github.io/university-health-search-demo/';
 const ALLOWED_ORIGIN = 'http://127.0.0.1:4321';
 const TYPES = ['hub','provider','service','location','resource','program','research','community','news'];
@@ -80,7 +81,7 @@ export function createFixtureResponse(url, scenario = 'changed') {
   if (types.length) matches = matches.filter(record => types.includes(record.type));
   const docs = matches.slice(start, start + rows).map(record => ({
     id: record.id,
-    title: `${record.title} | Alder Coast University Health`,
+    title: `${record.title} | ${SITE_NAME}`,
     url: record.url,
     description: record.description,
     demo_content_type_s: record.type,

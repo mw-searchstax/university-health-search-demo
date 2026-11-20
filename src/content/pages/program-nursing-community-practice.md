@@ -16,4 +16,4 @@ Nursing Community Practice is a fictional course about interpreting community-in
 
 ## Project references
 
-Students can compare the sample materials with the broader Nursing Studies collection and its classroom documentation exercises. The closed enrollment label is fictional; it includes no application process or reopening date.
+Students can compare the sample materials with the broader Nursing Studies collection and its classroom documentation exercises. This sample course doesn’t accept applications.

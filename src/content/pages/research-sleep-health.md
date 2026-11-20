@@ -13,7 +13,7 @@ related_ids:
 
 ## A research catalogue
 
-The Sleep Health Center is a fictional research group at Alder Coast University, separate from the campus Sleep Center building. Its catalogue groups academic literature, glossary entries and synthetic recordings by subject. Sleep-related breathing, insomnia and circadian rhythms appear as neutral topic labels that help organize the collection; the page does not explain symptoms or recommend care.
+The Sleep Health Center is a fictional research group at Central County University, separate from the campus Sleep Center building. Its catalogue groups academic literature, glossary entries and synthetic recordings by subject. Sleep-related breathing, insomnia and circadian rhythms appear as neutral topic labels that help organize the collection; the page does not explain symptoms or recommend care.
 
 ## Recording descriptions
 

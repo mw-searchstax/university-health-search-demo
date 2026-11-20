@@ -4,7 +4,7 @@ Fictional demonstration website. Not a real healthcare provider.
 
 ## Three teaching exhibits
 
-This collection guide describes three fictional exhibits arranged by the Alder Coast University Health teaching gallery. Each exhibit uses cardiology vocabulary as a subject label for a library-style display. The descriptions explain how the collection is organized; they do not give medical advice, describe a real service or report a clinical result.
+This collection guide describes three fictional exhibits arranged by the Central County University Health teaching gallery. Each exhibit uses cardiology vocabulary as a subject label for a library-style display. The descriptions explain how the collection is organized; they do not give medical advice, describe a real service or report a clinical result.
 
 ## Exhibit A: anatomy atlas shelf
 

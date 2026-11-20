@@ -2,7 +2,7 @@
 slug: care/services/cardiology
 content_type: service
 title: Cardiology
-summary: The Heart and Vascular service line's department for heart structure, rhythm and coronary circulation.
+summary: Cardiology is part of Heart and Vascular. The department teaches heart anatomy, heart rhythm, and coronary circulation.
 audience: [patient, student, faculty]
 published_date: "2026-01-28"
 updated_date: "2026-09-23"
@@ -16,12 +16,6 @@ related_ids:
 service_line: Heart and Vascular
 ---
 
-## Department scope
+At the Heart Center, students can compare the models in the gallery with the diagrams used in the adjoining anatomy classroom. Nursing Studies uses the same diagrams in class.
 
-Cardiology is Alder Coast's heart-focused department within the Heart and Vascular service line. Its subjects include the structure of the heart, its rhythm and coronary circulation: the blood supply to the heart muscle. These areas connect the study of anatomy with the way the heart functions.
-
-## The unit in the university
-
-The fictional department's teaching collection contains labelled heart models, coronary artery diagrams and example rhythm traces. Nursing Studies uses the anatomy material in classroom work. A separate glossary explains medical words found in departmental publications, including myocardial infarction.
-
-The department overview establishes the unit's subject area; the related terminology resource explains one specific condition. Neither page offers clinical assessment or appointments.
+This teaching department and its listings are fictional. Appointments and clinical care aren’t available through this site.

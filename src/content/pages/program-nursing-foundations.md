@@ -16,4 +16,4 @@ Nursing Foundations is a fictional introductory course built around observation 
 
 ## Course materials
 
-The reading set and exercises connect to the broader Nursing Studies collection. The enrollment label is fictional demonstration data and does not describe a real course opening or registration process.
+The reading set and exercises connect to the broader Nursing Studies collection. This sample course doesn’t accept applications.

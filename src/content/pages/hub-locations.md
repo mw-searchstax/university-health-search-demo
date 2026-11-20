@@ -1,7 +1,7 @@
 ---
 slug: locations
 content_type: hub
-title: Alder Coast Locations
+title: Central County Locations
 summary: Compare the university’s main building, specialty teaching centers, academic annexes and public-service pavilion.
 audience: ["patient", "student", "faculty", "community"]
 published_date: "2026-03-16"

@@ -1,0 +1,17 @@
+---
+import { fileHref } from '../lib/pages';
+
+interface Props {
+  documents: { path: string; title: string }[];
+  featured?: boolean;
+}
+const { documents, featured = false } = Astro.props;
+---
+{documents.length > 0 && (
+  <section class={featured ? 'featured-guide' : 'related-section'} aria-labelledby="documents-heading">
+    <h2 id="documents-heading">{featured ? 'Read the gallery guide' : 'Reading guides'}</h2>
+    <ul>
+      {documents.map(({ title, path }) => <li><a href={fileHref(path)}>{title}</a> (PDF)</li>)}
+    </ul>
+  </section>
+)}

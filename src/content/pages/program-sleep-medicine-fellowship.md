@@ -13,10 +13,10 @@ related_ids:
 
 ## Academic sequence
 
-The fictional Sleep Medicine Fellowship at Alder Coast University organizes its teaching sequence around sleep-related breathing, insomnia, circadian rhythms and the language used to describe sleep. Seminar materials include a topic glossary, diagram keys and sample recordings created for classroom demonstration. The sequence moves from terminology to comparing recording labels and room plans; it does not present clinical cases or treatment guidance.
+The fictional Sleep Medicine Fellowship at Central County University organizes its teaching sequence around sleep-related breathing, insomnia, circadian rhythms and the language used to describe sleep. Seminar materials include a topic glossary, diagram keys and sample recordings created for classroom demonstration. The sequence moves from terminology to comparing recording labels and room plans; it does not present clinical cases or treatment guidance.
 
 ## Demonstration setting
 
-At the Alder Coast Sleep Center, the program's demonstration rooms contain a visible equipment display, a bedside layout model and a wall plan of the observation room. Learners use these objects to connect the academic vocabulary with the setting in which sample recordings are discussed. A catalogue distinguishes room labels, equipment names and recording descriptions.
+At the Central County Sleep Center, the program's demonstration rooms contain a visible equipment display, a bedside layout model and a wall plan of the observation room. Learners use these objects to connect the academic vocabulary with the setting in which sample recordings are discussed. A catalogue distinguishes room labels, equipment names and recording descriptions.
 
 The fellowship page explains an invented academic program and its teaching collection. It makes no claims about accreditation, eligibility, professional qualifications or real patient care.

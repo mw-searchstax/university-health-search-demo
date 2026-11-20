@@ -1,6 +1,6 @@
-# Alder Coast University Health
+# Central County University Health
 
-A fictional public university health system in Alder Coast, Oregon, created as content for Site Search training. The local corpus contains **97 static HTML pages and six text-based PDFs**. It has no visitor-facing search interface, real clinical services, contact channels, patient data or submission forms. This count describes local source and output, not verified public or indexed coverage.
+A fictional public university health system in Oregon, created for Site Search training. The local corpus contains **97 content pages and six text-based PDFs**, plus a search page that stays out of the crawl. The site has no real clinical services, contact channels, patient data or submission forms.
 
 **Fictional demonstration website. Not a real healthcare provider.**
 
@@ -25,6 +25,6 @@ The [corpus manifest](docs/checkpoint-3-corpus-manifest.json) preserves the orig
 
 The GitHub Actions [deployment workflow](.github/workflows/deploy.yml) installs the pinned dependencies, runs the complete check suite and deploys only `dist/` to GitHub Pages. The project base path is `/university-health-search-demo/`. Operational planning and local QA evidence are preserved outside the public Git file set.
 
-Source metadata and controlled search-body regions support later extraction and ranking experiments. Their presence does not establish SearchStax indexing, field types, synonym behavior or ranking outcomes.
+For a private staging build, set `DEMO_SITE_ORIGIN` to the protected host's origin, without the project path. Run the build and checks with that same value so internal canonical URLs point to staging. Use the dedicated staging Search App's read-only endpoint and browser token for `PUBLIC_SEARCHSTAX_SEARCH_URL` and `PUBLIC_SEARCHSTAX_READ_ONLY_TOKEN`.
 
-The Otolaryngology page is included in this release. Its ingestion and synonym demonstration remain separately gated.
+Source metadata and the `.search-body` region support SearchStax extraction. Run ingestion and the lesson queries against the target Search App to verify the indexed fields and ranking.

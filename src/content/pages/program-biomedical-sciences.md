@@ -14,7 +14,7 @@ related_ids:
 
 ## Models, images and labels
 
-The Biomedical Sciences program at fictional Alder Coast University brings several kinds of teaching object into one catalogue. A model entry records the object name, the labels visible on its base and the course collection where it is stored. Image entries use invented filenames and neutral descriptions, allowing learners to compare catalogue fields without relying on clinical images or research results.
+The Biomedical Sciences program at fictional Central County University brings several kinds of teaching object into one catalogue. A model entry records the object name, the labels visible on its base and the course collection where it is stored. Image entries use invented filenames and neutral descriptions, allowing learners to compare catalogue fields without relying on clinical images or research results.
 
 ## Laboratory notation
 

@@ -1,7 +1,7 @@
 ---
 slug: "locations/heart-center"
 content_type: "location"
-title: "Alder Coast Heart Center"
+title: "Central County Heart Center"
 summary: "The Heart Center pairs a model gallery with a classroom used by fictional Cardiology teaching."
 audience: ["community", "student"]
 published_date: "2026-03-16"
@@ -11,7 +11,7 @@ related_ids: ["service-cardiology", "hub-locations"]
 
 ## Heart-model gallery
 
-Alder Coast Heart Center is a fictional campus setting with a heart-model gallery and anatomy classroom. The gallery uses labeled models, wall diagrams and a short index to show how the university organizes its heart-related teaching materials. A floor-plan panel identifies the gallery and adjoining classroom as separate spaces.
+Central County Heart Center is a fictional campus setting with a heart-model gallery and anatomy classroom. The gallery uses labeled models, wall diagrams and a short index to show how the university organizes its heart-related teaching materials. A floor-plan panel identifies the gallery and adjoining classroom as separate spaces.
 
 ## Cardiology and residency connections
 

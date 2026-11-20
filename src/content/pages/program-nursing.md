@@ -12,7 +12,7 @@ related_ids:
 
 ## Classroom foundations
 
-Nursing Studies at fictional Alder Coast University connects human biology with observation, recordkeeping and community health. Early classroom work uses labelled anatomy diagrams and written scenarios. Cardiology diagrams, for example, give learners practice reading the names and positions of heart structures.
+Nursing Studies at fictional Central County University connects human biology with observation, recordkeeping and community health. Early classroom work uses labelled anatomy diagrams and written scenarios. Cardiology diagrams, for example, give learners practice reading the names and positions of heart structures.
 
 ## Simulation and community work
 

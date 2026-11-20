@@ -13,7 +13,7 @@ related_ids:
 
 ## A catalogue of short sessions
 
-Continuing Education at fictional Alder Coast University groups short academic reading sessions by topic and material type. The catalogue contains a session outline, a glossary sheet and a list of background readings for each subject. Sample topics include anatomy illustration, community health literacy and the language used in public-health notices.
+Continuing Education at fictional Central County University groups short academic reading sessions by topic and material type. The catalogue contains a session outline, a glossary sheet and a list of background readings for each subject. Sample topics include anatomy illustration, community health literacy and the language used in public-health notices.
 
 ## How the materials are organized
 

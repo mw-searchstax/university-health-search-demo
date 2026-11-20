@@ -17,7 +17,7 @@ related_ids:
 
 ## Understanding screening
 
-Screening tests look for diseases before symptoms appear. Alder Coast's fictional Community Screening program uses that definition as the starting point for health-literacy materials. Its reading set pairs a vocabulary card with a sample program leaflet and examples of dated university notices.
+Screening tests look for diseases before symptoms appear. Central County's fictional Community Screening program uses that definition as the starting point for health-literacy materials. Its reading set pairs a vocabulary card with a sample program leaflet and examples of dated university notices.
 
 The vocabulary card explains the program's terms. The sample leaflet shows how a program description identifies its audience and purpose. The historical notices record changes within the institution.
 

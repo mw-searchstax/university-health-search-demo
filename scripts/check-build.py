@@ -5,6 +5,7 @@ from collections import deque
 from datetime import date
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import re
 import posixpath
@@ -13,10 +14,15 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 
 BASE = "/university-health-search-demo/"
-SITE = "https://mw-searchstax.github.io"
+SITE = (os.environ.get("DEMO_SITE_ORIGIN") or "https://mw-searchstax.github.io").rstrip("/")
 NOTICE = "Fictional demonstration website. Not a real healthcare provider."
 MANIFEST = Path(__file__).resolve().parents[1] / "docs/checkpoint-3-corpus-manifest.json"
 DOCUMENT_REGISTRY = Path(__file__).resolve().parents[1] / "src/data/documents.json"
+SITE_DATA = json.loads(DOCUMENT_REGISTRY.with_name("site.json").read_text(encoding="utf-8"))
+DISPLAY_LABELS = {
+    **{section["slug"]: section["label"] for section in SITE_DATA["navigation"]},
+    **SITE_DATA["pageLabels"],
+}
 SCRIPT_FIXTURES = Path(__file__).resolve().parents[1] / "src/data/script-fixtures.json"
 _manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
 _additions = json.loads(SCRIPT_FIXTURES.read_text(encoding="utf-8"))
@@ -274,14 +280,13 @@ def check_script_lexical_controls(record_id, title, description, body, path):
                 "Otolaryngology searchable fields must exclude protected prior-scenario query terms")
 
 
-def check_optional_metadata(parser, row, outside_text, path):
+def check_optional_metadata(parser, row, path):
     if row["id"] not in ADDED_IDS:
         require("demo-service-name" not in parser.meta and "demo-open-for-enrollment" not in parser.meta, path, "optional D-039 metadata must be absent from every original page")
         return
     if "service_names" in row:
         expected = row["service_names"]
         require(parser.meta.get("demo-service-name") == expected, path, "service-name metadata must serialize one exact value per declared service name")
-        require(", ".join(expected) in outside_text, path, "service-name fact must be visible outside .search-body")
     else:
         require("demo-service-name" not in parser.meta, path, "service-name metadata must be absent when source field is absent")
     if "open_for_enrollment" in row:
@@ -289,8 +294,6 @@ def check_optional_metadata(parser, row, outside_text, path):
         require(type(value) is bool, path, "projected enrollment value must be a strict Boolean")
         expected = "true" if value else "false"
         require(parser.meta.get("demo-open-for-enrollment") == [expected], path, "enrollment metadata must preserve the exact lowercase Boolean value")
-        visible = "Open (fictional)" if value else "Closed (fictional)"
-        require(visible in outside_text, path, "fictional enrollment fact must be visible outside .search-body")
     else:
         require("demo-open-for-enrollment" not in parser.meta, path, "enrollment metadata must be absent when source field is absent")
 
@@ -318,7 +321,8 @@ def inspect_page(root, route, relpath):
     row = next(row for row in HTML_BY_ID.values() if ("/" if not row["slug"] else "/" + row["slug"].strip("/") + "/") == route)
     check_page_shell(parser, path, route)
     if row["id"] != "home":
-        require(normalized_text(parser.h1_text) == row["title"], path, f"visible h1 must match source title {row['title']!r}")
+        expected_heading = DISPLAY_LABELS.get(row["slug"], row["title"])
+        require(normalized_text(parser.h1_text) == expected_heading, path, f"visible h1 must match the page label {expected_heading!r}")
         require(parser.meta.get("demo-content-type") == [row["content_type"]], path, f"demo-content-type must match source role {row['content_type']!r}")
     descriptions = parser.meta.get("description", [])
     require(parser.search_body_count == 1, path, f"expected exactly one .search-body, found {parser.search_body_count}")
@@ -338,7 +342,7 @@ def inspect_page(root, route, relpath):
         summary = SOURCE_SUMMARIES[row["id"]]
         require(normalized_text(parser.meta.get("description", [])) == summary, path, "description must equal the source summary")
         require(summary in normalized_text(parser.body_text), path, "source summary must appear in the detail .search-body")
-    check_optional_metadata(parser, row, normalized_text(parser.outside_body_text), path)
+    check_optional_metadata(parser, row, path)
     dates = parser.meta.get("demo-published-date", []) + parser.meta.get("demo-updated-date", [])
     iso_date = r"\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)?"
     require(all(re.fullmatch(iso_date, value) for value in dates), path, "publication/update metadata must use ISO dates or UTC instants")
@@ -373,7 +377,8 @@ def inspect_page(root, route, relpath):
     if route in expected_dates:
         expected_date = expected_dates[route]
         require(any(value == expected_date or value.startswith(expected_date + "T") for value in parser.meta["demo-published-date"]), path, f"published metadata must use {expected_date} (optionally as a UTC instant)")
-        require(any(item["datetime"] == expected_date and normalized_text(item["text"]) for item in parser.times), path, f"rendered publication date must use <time datetime=\"{expected_date}\"> with visible text")
+        if row["content_type"] == "news":
+            require(any(item["datetime"] == expected_date and normalized_text(item["text"]) for item in parser.times), path, f"rendered news date must use <time datetime=\"{expected_date}\"> with visible text")
 
     if row["id"] in ADDED_IDS:
         check_script_lexical_controls(row["id"], titles, descriptions[0], body_text, path)

@@ -1,18 +1,20 @@
 ---
 slug: "locations/university-hospital"
 content_type: "location"
-title: "Alder Coast University Hospital"
-summary: "A campus map links the fictional hospital’s teaching wing, library corridor, and departmental collections."
+title: "Central County University Hospital"
+summary: "Explore the departments in the hospital’s teaching wing and the anatomy reading room beside the hospital."
 audience: ["community", "student"]
 published_date: "2026-03-16"
 updated_date: "2026-09-28"
 related_ids: ["service-neurology", "service-orthopedics", "service-pulmonology", "service-gastroenterology", "service-oncology", "service-imaging", "service-laboratory-services", "hub-locations"]
 ---
 
-## Campus anchor building
+## The teaching wing
 
-Alder Coast University Hospital is the fictional campus anchor for several academic departments. Its teaching wing connects to a shared library corridor, with labeled floor maps showing the relationship between classrooms, collections and seminar spaces. The map is a campus-planning exhibit, not a visitor route or directions service.
+The teaching wing houses Neurology, Orthopedics, Pulmonology, Gastroenterology, Oncology, Imaging and Laboratory Services materials. Choose a department below to see its teaching collection or classroom activities.
 
-## Shared institutional spaces
+## The library corridor
 
-Neurology, Orthopedics, Pulmonology and several other departments maintain teaching materials in the building. The floor-plan collection groups those resources by academic unit and classroom use. The hospital profile provides setting context for the related department and provider pages, each of which describes its own collection. No address, visiting hours, contact channel or clinical services are represented here.
+The teaching wing connects to the library corridor. The anatomy reading room beside the hospital brings anatomy books, diagrams, and model catalogs into one place. Use the opening notice to see what moved into the room.
+
+This is a fictional teaching campus. The hospital page provides no clinical services or visit arrangements.

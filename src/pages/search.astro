@@ -7,14 +7,14 @@ const page = {
   ...pageSchema.parse(site.home),
   slug: 'search',
   title: 'Search',
-  summary: 'Search the fictional Alder Coast University Health website.',
+  summary: `Search the fictional ${site.name} website.`,
 };
 ---
 <SiteLayout page={page} noindex>
   <section class="container search-page" aria-labelledby="search-title">
     <header class="search-heading">
       <h1 id="search-title">Search the website</h1>
-      <p class="search-intro">Care, education, research and community — all in one place.</p>
+      <p class="search-intro">Find a department, course, or campus building.</p>
     </header>
     <div class="search-panel">
       <div id="searchstax-input-container"></div>

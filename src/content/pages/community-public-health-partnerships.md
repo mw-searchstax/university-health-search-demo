@@ -13,7 +13,7 @@ related_ids:
 
 ## Shared reading collections
 
-The Public Health Partnerships page describes how fictional Alder Coast University departments coordinate shared reading collections. The Public Health program maintains glossary cards and sample notices; the Population Health Center organizes map exercises; and the community education team reviews document labels for clarity. These are invented institutional roles, not agreements with outside organizations.
+The Public Health Partnerships page describes how fictional Central County University departments coordinate shared reading collections. The Public Health program maintains glossary cards and sample notices; the Population Health Center organizes map exercises; and the community education team reviews document labels for clarity. These are invented institutional roles, not agreements with outside organizations.
 
 ## How the roles fit together
 

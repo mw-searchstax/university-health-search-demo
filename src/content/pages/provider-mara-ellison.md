@@ -18,7 +18,7 @@ location_ids: [location-sleep-center]
 
 ## Faculty role
 
-Mara Ellison develops equipment demonstrations at fictional Alder Coast University Health. Her teaching materials include detached sensor leads, blank recording charts and illustrated room plans. These props give learners a way to recognize the parts of a demonstration setup without collecting information from a real person.
+Mara Ellison develops equipment demonstrations at fictional Central County University Health. Her teaching materials include detached sensor leads, blank recording charts and illustrated room plans. These props give learners a way to recognize the parts of a demonstration setup without collecting information from a real person.
 
 ## Work at the campus center
 

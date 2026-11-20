@@ -13,7 +13,7 @@ related_ids:
 
 ## A completed classroom display
 
-On July 14, 2026, fictional Alder Coast University held a Nursing Open Day featuring teaching objects from its simulation-room collection. Visitors saw a training mannequin, blank chart templates, illustrated case cards and posters showing how classroom materials were grouped. The event was an academic display about curriculum and simulation design.
+On July 14, 2026, fictional Central County University held a Nursing Open Day featuring teaching objects from its simulation-room collection. Visitors saw a training mannequin, blank chart templates, illustrated case cards and posters showing how classroom materials were grouped. The event was an academic display about curriculum and simulation design.
 
 ## Posters and teaching notes
 

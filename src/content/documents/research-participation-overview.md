@@ -20,4 +20,4 @@ The glossary defines common document terms such as version, summary, record and 
 
 ## Reading the distinction
 
-The information sheet explains a subject in the fictional collection, while the study record describes how one invented item is catalogued. The glossary and index help readers recognize those roles. There is no invitation, eligibility criterion, consent language, real investigator or contact route in the example. Every title and organizational detail belongs to the fictional Alder Coast University Health demonstration.
+The information sheet explains a subject in the fictional collection, while the study record describes how one invented item is catalogued. The glossary and index help readers recognize those roles. There is no invitation, eligibility criterion, consent language, real investigator or contact route in the example. Every title and organizational detail belongs to the fictional Central County University Health demonstration.

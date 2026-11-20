@@ -13,7 +13,7 @@ related_ids:
 
 ## Map exercises and categories
 
-The Population Health Center at fictional Alder Coast University maintains invented map exercises for teaching how categories and legends shape a public-information display. The maps use aggregate symbols and fictional place names rather than observations about real residents or neighborhoods. A catalogue entry identifies the map's topic, the labels in its legend and the intended classroom discussion.
+The Population Health Center at fictional Central County University maintains invented map exercises for teaching how categories and legends shape a public-information display. The maps use aggregate symbols and fictional place names rather than observations about real residents or neighborhoods. A catalogue entry identifies the map's topic, the labels in its legend and the intended classroom discussion.
 
 ## Questions about access
 

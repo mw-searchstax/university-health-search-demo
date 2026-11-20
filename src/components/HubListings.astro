@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PageCards from './PageCards.astro';
+
+interface Props {
+  groups: { title: string; pages: CollectionEntry<'pages'>[] }[];
+  directory?: boolean;
+}
+const { groups, directory = false } = Astro.props;
+---
+<div class:list={{ 'directory-listings': directory }}>
+  {groups.map(({ title, pages }) => (
+    <section class="hub-group">
+      <h2>{title}</h2>
+      <PageCards pages={pages} />
+    </section>
+  ))}
+</div>

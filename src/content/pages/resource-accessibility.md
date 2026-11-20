@@ -11,7 +11,7 @@ related_ids: ["community-transit-access", "location-rehabilitation-center"]
 
 ## Sample formats
 
-This resource describes large-print sample pages, glossary layouts and invented wayfinding conventions used in Alder Coast’s campus materials. A format card identifies type size and page structure, while a glossary sample demonstrates how a term can be paired with a plain-language label. A separate diagram shows fictional building symbols used in the teaching collection.
+This resource describes large-print sample pages, glossary layouts and invented wayfinding conventions used in Central County’s campus materials. A format card identifies type size and page structure, while a glossary sample demonstrates how a term can be paired with a plain-language label. A separate diagram shows fictional building symbols used in the teaching collection.
 
 ## Design references
 

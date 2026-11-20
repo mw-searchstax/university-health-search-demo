@@ -14,7 +14,7 @@ related_ids:
 
 ## Formats for public information
 
-The Health Literacy collection at fictional Alder Coast University shows how the same educational topic can appear in several formats. A glossary card presents one term with a short definition; a large-print sheet changes the page layout; and a plain-language label names a document's purpose before a reader opens it. The examples use invented material and focus on format and organization.
+The Health Literacy collection at fictional Central County University shows how the same educational topic can appear in several formats. A glossary card presents one term with a short definition; a large-print sheet changes the page layout; and a plain-language label names a document's purpose before a reader opens it. The examples use invented material and focus on format and organization.
 
 ## Comparing labels
 

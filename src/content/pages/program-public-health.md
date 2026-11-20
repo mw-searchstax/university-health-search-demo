@@ -13,7 +13,7 @@ related_ids:
 
 ## Population-level study
 
-Public Health at fictional Alder Coast University examines how communities describe shared conditions, services and information. Classroom exercises use invented map layers and aggregate symbols rather than records about real people. Learners compare map legends, note where a label is ambiguous and describe how the choice of category changes what a reader can see.
+Public Health at fictional Central County University examines how communities describe shared conditions, services and information. Classroom exercises use invented map layers and aggregate symbols rather than records about real people. Learners compare map legends, note where a label is ambiguous and describe how the choice of category changes what a reader can see.
 
 ## Public information as a subject
 

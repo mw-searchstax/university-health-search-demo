@@ -13,7 +13,7 @@ related_ids:
 
 ## Foundations and case discussion
 
-The Medicine curriculum at fictional Alder Coast University organizes foundational subjects around small-group discussion and a shared collection of teaching materials. Sample case cards describe invented settings and questions for classroom analysis. They are designed to help learners distinguish a recorded detail from an interpretation, with no real patient histories represented.
+The Medicine curriculum at fictional Central County University organizes foundational subjects around small-group discussion and a shared collection of teaching materials. Sample case cards describe invented settings and questions for classroom analysis. They are designed to help learners distinguish a recorded detail from an interpretation, with no real patient histories represented.
 
 ## Anatomy collection
 

@@ -1,6 +1,7 @@
+import site from '../data/site.json';
 import { Searchstax, type ISearchObject } from '@searchstax-inc/searchstudio-ux-js';
 import { CONTENT_TYPE_FIELD, CONTENT_TYPE_LABELS, normalizeTypes, pageIsOutOfRange, readSearch, responseMatchesSearch, searchUrl } from './search-state.mjs';
-import { resultPresentation, typesFromResponse } from './search-presentation.mjs';
+import { displayResultTitle, resultPresentation, typesFromResponse } from './search-presentation.mjs';
 import '../../node_modules/@searchstax-inc/searchstudio-ux-js/dist/styles/mainTheme.css';
 
 const status = document.querySelector<HTMLElement>('#search-status')!;
@@ -134,7 +135,7 @@ if (!searchURL || !searchAuth) {
         summary.textContent = `${total ?? 0} ${(total ?? 0) === 1 ? 'result' : 'results'} for “${current.query}”`;
         renderSelections();
         return items.map(result => ({ ...result,
-          title: result.title?.replace(/\s*\|\s*Alder Coast University Health$/, '') ?? result.title,
+          title: displayResultTitle(result.title, site.name),
           custom: resultPresentation(result, import.meta.env.BASE_URL),
         }));
       },
@@ -156,9 +157,9 @@ if (!searchURL || !searchAuth) {
     templates: {
       searchResultTemplate: {
         template: `<article class="demo-search-result">
-          <div class="result-meta">{{#custom.typeLabel}}<span class="result-type">{{custom.typeLabel}}</span>{{/custom.typeLabel}}
+          <div class="result-meta">{{#custom.isPdf}}<span class="result-type">PDF</span>{{/custom.isPdf}}
             {{#custom.breadcrumb}}<span class="result-breadcrumb">{{custom.breadcrumb}}</span>{{/custom.breadcrumb}}</div>
-          <h2><a href="{{url}}" data-searchstax-unique-result-id="{{uniqueId}}">{{title}}</a><span aria-hidden="true" class="result-arrow"> ↗</span></h2>
+          <h2><a href="{{url}}" data-searchstax-unique-result-id="{{uniqueId}}">{{title}}</a></h2>
           <p>{{description}}</p></article>`,
         searchResultUniqueIdAttribute: 'data-searchstax-unique-result-id',
       },

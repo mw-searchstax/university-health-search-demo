@@ -1,7 +1,7 @@
 ---
 slug: care
 content_type: hub
-title: Care at Alder Coast University Health
+title: Care at Central County University Health
 summary: Explore clinical departments, a faculty profile, a campus center and a plain-language terminology resource.
 audience: [patient, faculty, community]
 published_date: "2026-01-12"
@@ -70,7 +70,7 @@ related_ids:
 
 ## Find a department or a person
 
-Alder Coast's care directory introduces the clinical and academic parts of this fictional university health system. Cardiology focuses on the heart; Sleep Medicine covers a different set of subjects within Pulmonary and Sleep Services. The service summaries below explain each unit's scope.
+Central County's care directory introduces the clinical and academic parts of this fictional university health system. Cardiology focuses on the heart; Sleep Medicine covers a different set of subjects within Pulmonary and Sleep Services. The service summaries below explain each unit's scope.
 
 Provider profiles describe individual roles. Mara Ellison's page introduces her teaching with equipment displays and connects it to the associated department and campus center.
 
@@ -78,4 +78,4 @@ Provider profiles describe individual roles. Mara Ellison's page introduces her 
 
 The Sleep Center profile describes the building and its demonstration rooms. The myocardial infarction resource explains a medical term used in Cardiology publications.
 
-Use the grouped links below to move between departments, people, places and resources. Each page has a narrower purpose than this directory. The website represents a fictional institution and provides no clinical services.
+Use the directory above to move between departments, people, places and resources. Each page has a narrower purpose than this directory. The website represents a fictional institution and provides no clinical services.

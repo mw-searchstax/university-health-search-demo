@@ -1,4 +1,4 @@
-import { CONTENT_TYPE_FIELD, CONTENT_TYPE_LABELS, normalizeTypes } from './search-state.mjs';
+import { normalizeTypes } from './search-state.mjs';
 
 const PATH_LABELS = Object.freeze({
   care: 'Care', providers: 'Providers', services: 'Services', resources: 'Resources',
@@ -6,13 +6,19 @@ const PATH_LABELS = Object.freeze({
   locations: 'Locations', news: 'News', documents: 'Documents', pdfs: 'Documents',
 });
 
+export function displayResultTitle(title, siteName) {
+  // Accept titles indexed just before the rename until the public recrawl completes.
+  for (const name of [siteName, 'Alder Coast University Health']) {
+    const suffix = ` | ${name}`;
+    if (title?.endsWith(suffix)) return title.slice(0, -suffix.length).trimEnd();
+  }
+  return title;
+}
+
 // Presentation only: never change result membership, order, title or destination.
 export function resultPresentation(result, basePath) {
-  const fields = new Map((result.allFields ?? []).map(field => [field.key, field.value]));
-  const first = value => Array.isArray(value) ? value[0] : value;
-  const category = first(fields.get(CONTENT_TYPE_FIELD));
-  const format = first(fields.get('document_type'));
-  const label = Object.hasOwn(CONTENT_TYPE_LABELS, category) ? CONTENT_TYPE_LABELS[category] : format === 'pdf' ? 'PDF' : '';
+  const format = result.allFields?.find(field => field.key === 'document_type')?.value;
+  const isPdf = (Array.isArray(format) ? format[0] : format) === 'pdf';
   let breadcrumb = '';
   try {
     const url = new URL(result.url);
@@ -23,7 +29,7 @@ export function resultPresentation(result, basePath) {
       breadcrumb = ['Home', ...parts.map(part => Object.hasOwn(PATH_LABELS, part) ? PATH_LABELS[part] : part.replaceAll('-', ' '))].join(' / ');
     }
   } catch { /* A missing path does not justify invented metadata. */ }
-  return { typeLabel: label, breadcrumb };
+  return { isPdf, breadcrumb };
 }
 
 export function typesFromResponse(response) {

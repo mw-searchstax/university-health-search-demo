@@ -1,7 +1,7 @@
 ---
 slug: community
 content_type: hub
-title: Community at Alder Coast
+title: Community at Central County
 summary: Explore enduring programs for reading health information, understanding campus maps and connecting university teaching with public-service subjects.
 audience: ["student", "faculty", "community"]
 published_date: "2026-03-16"

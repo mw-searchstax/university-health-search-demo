@@ -13,7 +13,7 @@ related_ids:
 
 ## Classroom reading kits
 
-School Health Education describes fictional reading kits assembled by Alder Coast University Health for classroom discussion. Each kit has a topic card, a picture-label sheet and a short teacher note about the intended reading activity. The topics are arranged by age-appropriate vocabulary and document format, rather than by clinical instruction.
+School Health Education describes fictional reading kits assembled by Central County University Health for classroom discussion. Each kit has a topic card, a picture-label sheet and a short teacher note about the intended reading activity. The topics are arranged by age-appropriate vocabulary and document format, rather than by clinical instruction.
 
 ## Teacher-facing materials
 

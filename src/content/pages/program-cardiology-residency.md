@@ -14,7 +14,7 @@ related_ids:
 
 ## Rotation map and teaching objects
 
-The Cardiology Residency page describes a fictional academic rotation map used to organize seminars and shared learning materials at Alder Coast University Health. Its first section groups labelled heart models with anatomy diagrams. A case-library section holds invented discussion cards and blank note templates; the cards are teaching objects, not records of actual care.
+The Cardiology Residency page describes a fictional academic rotation map used to organize seminars and shared learning materials at Central County University Health. Its first section groups labelled heart models with anatomy diagrams. A case-library section holds invented discussion cards and blank note templates; the cards are teaching objects, not records of actual care.
 
 ## Seminar catalogue
 

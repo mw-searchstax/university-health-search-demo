@@ -86,14 +86,14 @@ class BuildCheckerTests(unittest.TestCase):
         parser = checks["PageParser"]()
         parser.feed('<meta name="demo-open-for-enrollment" content="false">')
         row = checks["_added_by_id"]["program-nursing-community-practice"]
-        checks["check_optional_metadata"](parser, row, "Closed (fictional)", "community-practice.html")
+        checks["check_optional_metadata"](parser, row, "community-practice.html")
         parser.meta["demo-open-for-enrollment"] = []
         with self.assertRaisesRegex(checks["CheckFailure"], "exact lowercase Boolean"):
-            checks["check_optional_metadata"](parser, row, "Closed (fictional)", "community-practice.html")
+            checks["check_optional_metadata"](parser, row, "community-practice.html")
         old = checks["HTML_BY_ID"]["program-nursing"]
         parser.meta["demo-open-for-enrollment"] = ["false"]
         with self.assertRaisesRegex(checks["CheckFailure"], "absent from every original page"):
-            checks["check_optional_metadata"](parser, old, "", "nursing.html")
+            checks["check_optional_metadata"](parser, old, "nursing.html")
 
     def test_source_boolean_rejects_quoted_false_and_relationship_yaml_forms(self):
         literal = checks["strict_boolean_literal"]

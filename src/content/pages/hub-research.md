@@ -1,7 +1,7 @@
 ---
 slug: research
 content_type: hub
-title: Research at Alder Coast
+title: Research at Central County
 summary: Find anatomy archives, synthetic recording collections, population-map exercises and simulation learning groups by their research subject.
 audience: ["student", "faculty", "community"]
 published_date: "2026-03-16"

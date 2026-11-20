@@ -14,7 +14,7 @@ related_ids:
 
 ## Reading copies at the pavilion
 
-On April 12, 2026, fictional Alder Coast University Health added a small reading-copy display at the Community Health Pavilion. The display brought sample leaflets, vocabulary cards and selected university notices together in one labelled case. It was an institutional materials update, separate from the 2025 decision to reorganize the catalogue sections.
+On April 12, 2026, fictional Central County University Health added a small reading-copy display at the Community Health Pavilion. The display brought sample leaflets, vocabulary cards and selected university notices together in one labelled case. It was an institutional materials update, separate from the 2025 decision to reorganize the catalogue sections.
 
 ## A different kind of update
 

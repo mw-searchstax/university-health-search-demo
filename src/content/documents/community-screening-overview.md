@@ -20,4 +20,4 @@ The archive shelf holds dated notices about invented changes to university readi
 
 ## Using the index
 
-Readers can browse by topic, document format or publication context. This arrangement makes it possible to compare vocabulary cards with leaflets and archive items without treating them as interchangeable. All titles, dates and institutional details are fictional teaching content created for the Alder Coast University Health search demonstration.
+Readers can browse by topic, document format or publication context. This arrangement makes it possible to compare vocabulary cards with leaflets and archive items without treating them as interchangeable. All titles, dates and institutional details are fictional teaching content created for the Central County University Health search demonstration.

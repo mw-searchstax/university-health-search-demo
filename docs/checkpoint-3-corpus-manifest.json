@@ -52,7 +52,7 @@
     {
       "id": "hub-about",
       "content_type": "hub",
-      "title": "About Alder Coast",
+      "title": "About Central County",
       "slug": "about",
       "purpose": "Explain the fictional university-health relationship, institutional structure and demonstration identity.",
       "related_ids": [
@@ -75,7 +75,7 @@
     {
       "id": "hub-care",
       "content_type": "hub",
-      "title": "Care at Alder Coast University Health",
+      "title": "Care at Central County University Health",
       "slug": "care",
       "purpose": "Orient readers to departments, providers, resources and places through grouped directories.",
       "related_ids": [
@@ -151,7 +151,7 @@
     {
       "id": "hub-education",
       "content_type": "hub",
-      "title": "Education at Alder Coast",
+      "title": "Education at Central County",
       "slug": "education",
       "purpose": "Compare the purposes of eight academic programs and identify their campus teaching links.",
       "related_ids": [
@@ -176,7 +176,7 @@
     {
       "id": "hub-research",
       "content_type": "hub",
-      "title": "Research at Alder Coast",
+      "title": "Research at Central County",
       "slug": "research",
       "purpose": "Introduce five research and learning groups by subject and educational material, without results or recruitment.",
       "related_ids": [
@@ -198,7 +198,7 @@
     {
       "id": "hub-locations",
       "content_type": "hub",
-      "title": "Alder Coast Locations",
+      "title": "Central County Locations",
       "slug": "locations",
       "purpose": "Distinguish nine fictional campus settings by rooms, collections and institutional use.",
       "related_ids": [
@@ -224,7 +224,7 @@
     {
       "id": "hub-community",
       "content_type": "hub",
-      "title": "Community at Alder Coast",
+      "title": "Community at Central County",
       "slug": "community",
       "purpose": "Distinguish five enduring public-service programs from dated institutional news.",
       "related_ids": [
@@ -246,7 +246,7 @@
     {
       "id": "hub-news",
       "content_type": "hub",
-      "title": "Alder Coast News Archive",
+      "title": "Central County News Archive",
       "slug": "news",
       "purpose": "Provide a chronological index of five historical institutional notices with fixed publication dates.",
       "related_ids": [
@@ -1116,7 +1116,7 @@
     {
       "id": "location-university-hospital",
       "content_type": "location",
-      "title": "Alder Coast University Hospital",
+      "title": "Central County University Hospital",
       "slug": "locations/university-hospital",
       "purpose": "Campus anchor building: teaching wings, library connection and departmental geography.",
       "related_ids": [
@@ -1180,7 +1180,7 @@
     {
       "id": "location-heart-center",
       "content_type": "location",
-      "title": "Alder Coast Heart Center",
+      "title": "Central County Heart Center",
       "slug": "locations/heart-center",
       "purpose": "Heart-model gallery, anatomy classroom and its connection to Cardiology and the residency.",
       "related_ids": [
@@ -1199,7 +1199,7 @@
     {
       "id": "location-sleep-center",
       "content_type": "location",
-      "title": "Alder Coast Sleep Center",
+      "title": "Central County Sleep Center",
       "slug": "locations/sleep-center",
       "purpose": "Low-rise academic building, covered walkway, demonstration bedrooms and observation room.",
       "related_ids": [

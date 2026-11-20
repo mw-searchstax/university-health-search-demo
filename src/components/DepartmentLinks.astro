@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { pageHref, pageLabel } from '../lib/pages';
+
+interface Props {
+  groups: { title: string; ids: string[]; description?: string }[];
+  pages: CollectionEntry<'pages'>[];
+}
+const { groups, pages } = Astro.props;
+const pagesById = new Map(pages.map(({ id, data }) => [id, data]));
+const sections = groups.map(({ title, description, ids }) => ({
+  title,
+  description,
+  links: ids.map((id) => {
+    const page = pagesById.get(id);
+    if (!page) throw new Error(`Missing department link: ${id}`);
+    return page;
+  }),
+}));
+---
+<div class="department-links">
+  {sections.map(({ title, description, links }) => (
+    <section>
+      <h2>{title}</h2>
+      <div>
+        {description && <p>{description}</p>}
+        <ul class="department-link-list">
+          {links.map((link) => <li><a href={pageHref(link.slug)}>{pageLabel(link.slug, link.title)}</a></li>)}
+        </ul>
+      </div>
+    </section>
+  ))}
+</div>

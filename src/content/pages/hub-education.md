@@ -1,7 +1,7 @@
 ---
 slug: education
 content_type: hub
-title: Education at Alder Coast
+title: Education at Central County
 summary: Explore degree subjects, advanced academic programs and short-format learning through their classroom materials and campus connections.
 audience: ["student", "faculty", "community"]
 published_date: "2026-03-16"
@@ -31,4 +31,4 @@ Cardiology Residency and Sleep Medicine Fellowship connect a narrower subject ar
 
 Continuing Education outlines a short-topic reading catalogue. Admissions Overview explains the labels used in an invented academic prospectus, rather than offering an application process.
 
-These are curriculum descriptions for a fictional university. Any enrollment labels are fictional demonstration data; these pages provide no real enrollment availability, eligibility decisions, deadlines or submission forms.
+These are curriculum descriptions for a fictional university. You can’t apply or enroll through this site.

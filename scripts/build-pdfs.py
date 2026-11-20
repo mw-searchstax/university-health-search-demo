@@ -74,7 +74,7 @@ def deterministic_canvas(title, filename, **kwargs):
     kwargs.pop("invariant", None)
     output = canvas.Canvas(filename, invariant=1, **kwargs)
     output.setTitle(title)
-    output.setAuthor("Alder Coast University Health - fictional demonstration")
+    output.setAuthor("Central County University Health - fictional demonstration")
     output.setSubject("Fictional teaching document")
     return output
 
@@ -104,7 +104,7 @@ def render_record(record, project_root=ROOT):
         else:
             story.append(Paragraph(escape(value), styles["body"]))
     flush_bullets()
-    doc = SimpleDocTemplate(str(output), pagesize=letter, title=record["title"], author="Alder Coast University Health - fictional demonstration", subject="Fictional teaching document", leftMargin=0.78 * inch, rightMargin=0.78 * inch, topMargin=0.72 * inch, bottomMargin=0.82 * inch)
+    doc = SimpleDocTemplate(str(output), pagesize=letter, title=record["title"], author="Central County University Health - fictional demonstration", subject="Fictional teaching document", leftMargin=0.78 * inch, rightMargin=0.78 * inch, topMargin=0.72 * inch, bottomMargin=0.82 * inch)
     doc.build(story, onFirstPage=footer, onLaterPages=footer, canvasmaker=lambda filename, **kwargs: deterministic_canvas(record["title"], filename, **kwargs))
     return output
 

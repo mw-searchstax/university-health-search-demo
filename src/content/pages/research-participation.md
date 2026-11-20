@@ -13,7 +13,7 @@ related_ids:
 
 ## Research document vocabulary
 
-This fictional reference page describes common labels found in research information collections at Alder Coast University. A sample information sheet is organized into sections such as purpose, background, document date and glossary. A separate study record uses fields for a catalogue identifier and a status label. These examples explain document types without describing a real study.
+This fictional reference page describes common labels found in research information collections at Central County University. A sample information sheet is organized into sections such as purpose, background, document date and glossary. A separate study record uses fields for a catalogue identifier and a status label. These examples explain document types without describing a real study.
 
 ## Information sheets and records
 

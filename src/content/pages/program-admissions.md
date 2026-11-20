@@ -13,7 +13,7 @@ related_ids:
 
 ## Reading an academic prospectus
 
-This fictional admissions overview explains how an academic prospectus is organized at Alder Coast University. A sample document uses section labels such as program description, curriculum outline, glossary and campus-learning materials. The labels describe the contents of an invented publication; they do not indicate current openings or a live admissions process.
+This fictional admissions overview explains how an academic prospectus is organized at Central County University. A sample document uses section labels such as program description, curriculum outline, glossary and campus-learning materials. The labels describe the contents of an invented publication; they do not indicate current openings or a live admissions process.
 
 ## Document categories
 

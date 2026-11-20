@@ -1,0 +1,324 @@
+{
+  "service-behavioral-health": [
+    {
+      "title": "Read about the transcript exercise",
+      "ids": [
+        "provider-priya-wrenford"
+      ]
+    },
+    {
+      "title": "Find the seminar space",
+      "ids": [
+        "location-teaching-health-center"
+      ]
+    }
+  ],
+  "service-cardiology": [
+    {
+      "title": "Explore the Heart Center",
+      "ids": [
+        "location-heart-center",
+        "resource-cardiology-visit"
+      ]
+    },
+    {
+      "title": "Look up a heart term",
+      "ids": [
+        "resource-mi-terms"
+      ]
+    },
+    {
+      "title": "Meet the teaching faculty",
+      "ids": [
+        "provider-jonah-fenwick",
+        "provider-nadia-mercer"
+      ]
+    }
+  ],
+  "service-dermatology": [
+    {
+      "title": "See how the drawings are labeled",
+      "ids": [
+        "provider-iris-bellan"
+      ]
+    },
+    {
+      "title": "Find the skin illustration display",
+      "ids": [
+        "location-south-campus-clinic"
+      ]
+    }
+  ],
+  "service-endocrinology": [
+    {
+      "title": "Match a gland model to its name",
+      "ids": [
+        "provider-nolan-vey"
+      ]
+    },
+    {
+      "title": "Find the teaching collection",
+      "ids": [
+        "location-south-campus-clinic"
+      ]
+    }
+  ],
+  "service-gastroenterology": [
+    {
+      "title": "See how the stations are arranged",
+      "ids": [
+        "provider-elena-farrow"
+      ]
+    },
+    {
+      "title": "Find the hospital teaching wing",
+      "ids": [
+        "location-university-hospital"
+      ]
+    }
+  ],
+  "service-general-health-services": [
+    {
+      "title": "Read a sample campus notice",
+      "ids": [
+        "resource-flu-shot-appointments"
+      ],
+      "description": "The example shows where the session label and edition appear in a notice."
+    },
+    {
+      "title": "Compare health information collections",
+      "ids": [
+        "service-primary-care",
+        "service-international-health"
+      ]
+    }
+  ],
+  "service-imaging": [
+    {
+      "title": "Read a teaching image label",
+      "ids": [
+        "provider-cora-lindell"
+      ]
+    },
+    {
+      "title": "Find the teaching archive",
+      "ids": [
+        "location-university-hospital"
+      ]
+    }
+  ],
+  "service-international-health": [
+    {
+      "title": "Study how public health information is organized",
+      "ids": [
+        "program-public-health",
+        "community-health-literacy"
+      ],
+      "description": "Compare how a map, a handout, and a glossary present information to different readers."
+    },
+    {
+      "title": "Compare materials from another department",
+      "ids": [
+        "service-primary-care"
+      ]
+    }
+  ],
+  "service-laboratory-services": [
+    {
+      "title": "See how a specimen label and inventory form fit together",
+      "ids": [
+        "provider-felix-arden"
+      ]
+    },
+    {
+      "title": "Find the laboratory teaching area",
+      "ids": [
+        "location-university-hospital"
+      ]
+    }
+  ],
+  "service-neurology": [
+    {
+      "title": "Choose a teaching resource",
+      "ids": [
+        "provider-lena-calder",
+        "provider-miles-tavish"
+      ]
+    },
+    {
+      "title": "Find the teaching wing",
+      "ids": [
+        "location-university-hospital"
+      ]
+    },
+    {
+      "title": "Explore the wider anatomy curriculum",
+      "ids": [
+        "program-biomedical-sciences"
+      ]
+    }
+  ],
+  "service-oncology": [
+    {
+      "title": "Learn how the reading index works",
+      "ids": [
+        "provider-owen-talden"
+      ]
+    },
+    {
+      "title": "Find the reading collection",
+      "ids": [
+        "location-university-hospital"
+      ]
+    }
+  ],
+  "service-orthopedics": [
+    {
+      "title": "Match a joint model to a drawing",
+      "ids": [
+        "provider-adrian-pell"
+      ]
+    },
+    {
+      "title": "Find the model cabinet",
+      "ids": [
+        "location-university-hospital"
+      ]
+    },
+    {
+      "title": "See how a different class uses room plans",
+      "ids": [
+        "service-rehabilitation"
+      ]
+    }
+  ],
+  "service-otolaryngology": [
+    {
+      "title": "Explore anatomy teaching",
+      "ids": [
+        "program-biomedical-sciences"
+      ],
+      "description": "See how students use anatomy models and drawings in the wider curriculum."
+    },
+    {
+      "title": "Browse other specialties",
+      "ids": [
+        "hub-care"
+      ]
+    }
+  ],
+  "service-pediatrics": [
+    {
+      "title": "Read about the books and models",
+      "ids": [
+        "provider-tessa-rowan"
+      ]
+    },
+    {
+      "title": "Find the reading alcove",
+      "ids": [
+        "location-childrens-clinic"
+      ]
+    }
+  ],
+  "service-primary-care": [
+    {
+      "title": "Compare case notes and referral examples",
+      "ids": [
+        "provider-niko-maren",
+        "provider-rhea-solen"
+      ]
+    },
+    {
+      "title": "Find the case materials",
+      "ids": [
+        "location-teaching-health-center"
+      ]
+    },
+    {
+      "title": "See examples of plain-language handouts",
+      "ids": [
+        "provider-anika-pellan",
+        "location-community-health-pavilion"
+      ]
+    }
+  ],
+  "service-pulmonology": [
+    {
+      "title": "Explore the respiratory anatomy display",
+      "ids": [
+        "provider-theo-ashwell"
+      ]
+    },
+    {
+      "title": "Find the teaching wing",
+      "ids": [
+        "location-university-hospital"
+      ]
+    },
+    {
+      "title": "Compare the two teaching areas",
+      "ids": [
+        "service-sleep-medicine"
+      ]
+    }
+  ],
+  "service-rehabilitation": [
+    {
+      "title": "Compare an apartment plan with its furniture",
+      "ids": [
+        "location-rehabilitation-center"
+      ],
+      "description": "The center displays the mock layouts and adjustable furniture together."
+    },
+    {
+      "title": "Read about the two design exercises",
+      "ids": [
+        "provider-mina-corven",
+        "provider-simon-kelver"
+      ]
+    },
+    {
+      "title": "Find example wayfinding and large-print materials",
+      "ids": [
+        "resource-accessibility"
+      ]
+    }
+  ],
+  "service-sleep-medicine": [
+    {
+      "title": "Explore the demonstration rooms",
+      "ids": [
+        "location-sleep-center",
+        "resource-sleep-visit"
+      ]
+    },
+    {
+      "title": "Read what the teaching faculty work on",
+      "ids": [
+        "provider-mara-ellison",
+        "provider-dorian-weller"
+      ]
+    },
+    {
+      "title": "Explore the fellowship",
+      "ids": [
+        "program-sleep-medicine-fellowship"
+      ]
+    }
+  ],
+  "service-womens-health": [
+    {
+      "title": "Find a reading and its illustration",
+      "ids": [
+        "provider-soren-hale"
+      ]
+    },
+    {
+      "title": "Find the seminar rooms",
+      "ids": [
+        "location-south-campus-clinic"
+      ]
+    }
+  ]
+}

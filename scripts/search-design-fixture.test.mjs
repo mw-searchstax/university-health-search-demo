@@ -6,10 +6,10 @@ test('scenario populations preserve fixed local demo outcomes and real nursing r
   const baseline = createFixtureResponse('http://127.0.0.1/search?q=travel%20vaccinations', 'baseline');
   const changed = createFixtureResponse('http://127.0.0.1/search?q=travel%20vaccinations', 'changed');
   assert.equal(baseline.response.numFound, 1);
-  assert.equal(baseline.response.docs[0].title, 'Transit Access | Alder Coast University Health');
+  assert.equal(baseline.response.docs[0].title, 'Transit Access | Central County University Health');
   assert.equal(changed.response.numFound, 2);
   assert.deepEqual(changed.response.docs.map(doc => doc.title), [
-    'Transit Access | Alder Coast University Health', 'International Health | Alder Coast University Health',
+    'Transit Access | Central County University Health', 'International Health | Central County University Health',
   ]);
   assert.deepEqual(baseline.facet_counts.facet_fields.demo_content_type_s, ['community',1]);
   const nursing = createFixtureResponse('http://127.0.0.1/search?q=nursing%20courses&rows=20');

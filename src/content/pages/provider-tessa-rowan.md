@@ -15,7 +15,7 @@ location_ids: ["location-childrens-clinic"]
 
 ## Models and picture books
 
-Tessa Rowan curates a teaching collection for the fictional Pediatrics department. The display combines age-labelled classroom models with picture books about the Alder Coast campus. Labels explain the purpose of each object in the collection, while a shelf guide groups books by setting, illustration style and intended classroom activity.
+Tessa Rowan curates a teaching collection for the fictional Pediatrics department. The display combines age-labelled classroom models with picture books about the Central County campus. Labels explain the purpose of each object in the collection, while a shelf guide groups books by setting, illustration style and intended classroom activity.
 
 ## A children’s teaching setting
 

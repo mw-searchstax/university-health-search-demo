@@ -13,7 +13,7 @@ related_ids:
 
 ## Illustration archive
 
-The Cardiovascular Research Center at fictional Alder Coast University maintains a catalogue of anatomy illustrations, diagram keys and model photographs created for teaching and discussion. Each entry records a subject label, the format of the item and the collection that holds it. The archive makes it possible to compare how one topic is represented across a labelled model, a flat illustration and a seminar handout.
+The Cardiovascular Research Center at fictional Central County University maintains a catalogue of anatomy illustrations, diagram keys and model photographs created for teaching and discussion. Each entry records a subject label, the format of the item and the collection that holds it. The archive makes it possible to compare how one topic is represented across a labelled model, a flat illustration and a seminar handout.
 
 ## Questions and cataloguing
 

@@ -1,7 +1,7 @@
 ---
 slug: news
 content_type: hub
-title: Alder Coast News Archive
+title: Central County News Archive
 summary: Read dated institutional notices about reference collections, teaching spaces and past academic display events.
 audience: ["student", "faculty", "community"]
 published_date: "2026-03-16"

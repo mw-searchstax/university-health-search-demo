@@ -20,4 +20,4 @@ The glossary card groups general vocabulary by topic rather than by clinical rec
 
 ## Teaching use
 
-In a document-design exercise, learners can identify repeated labels, distinguish a section title from a document title and describe how a packet communicates its structure. The example has no detachable forms, signature blocks, instructions to complete a task or route to a service. It exists only as a fictional, text-based classroom artifact for the Alder Coast University Health search demonstration.
+In a document-design exercise, learners can identify repeated labels, distinguish a section title from a document title and describe how a packet communicates its structure. The example has no detachable forms, signature blocks, instructions to complete a task or route to a service. It exists only as a fictional, text-based classroom artifact for the Central County University Health search demonstration.
