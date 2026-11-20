@@ -2,7 +2,7 @@
 slug: education/nursing-simulation
 content_type: program
 title: Nursing Simulation
-summary: "Students in nursing courses set up a practice room, document what they observe, and compare notes after a simulation."
+summary: "Students in nursing courses set up a practice room and compare their observation notes."
 audience: [student, faculty]
 published_date: "2026-03-16"
 updated_date: "2026-10-22"
