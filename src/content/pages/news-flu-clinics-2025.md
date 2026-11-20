@@ -2,7 +2,7 @@
 slug: news/flu-clinic-update-2025
 content_type: news
 title: Flu Clinic Updates — 2025 Archive
-summary: A fictional 2025 archive notice describes revised headings and a large-print version of the sample flu clinic updates pack.
+summary: The 2025 sample flu clinic updates pack adds revised headings and a large-print edition.
 audience: [community, faculty, student]
 published_date: "2025-09-15"
 updated_date: "2025-09-15"

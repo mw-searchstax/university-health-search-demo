@@ -2,7 +2,7 @@
 slug: news/flu-clinic-update-2024
 content_type: news
 title: Flu Clinic Updates — 2024 Archive
-summary: A fictional 2024 archive notice records a sample flu clinic updates pack of poster headings and document labels.
+summary: Sample headings and labels from the 2024 flu clinic updates pack.
 audience: [community, faculty, student]
 published_date: "2024-09-15"
 updated_date: "2024-09-15"

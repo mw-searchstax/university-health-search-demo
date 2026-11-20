@@ -2,7 +2,7 @@
 slug: "care/providers/adrian-pell"
 content_type: "provider"
 title: "Adrian Pell"
-summary: "An Orthopedics model cabinet connects joint diagrams with classroom sketchbooks."
+summary: "In Orthopedics, students match joint models to sketches. The room plans used in Rehabilitation are in a separate collection."
 audience: ["student", "faculty"]
 published_date: "2026-03-16"
 updated_date: "2026-09-28"

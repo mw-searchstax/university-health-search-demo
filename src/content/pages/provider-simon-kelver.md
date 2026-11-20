@@ -2,7 +2,7 @@
 slug: "care/providers/simon-kelver"
 content_type: "provider"
 title: "Simon Kelver"
-summary: "Rehabilitation classroom materials pair adjustable furniture with annotated design drawings."
+summary: "At the Rehabilitation Center, Simon Kelver pairs adjustable furniture with annotated drawings for rehabilitation classes."
 audience: ["student", "faculty"]
 published_date: "2026-03-16"
 updated_date: "2026-09-28"
